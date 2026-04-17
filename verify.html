@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Подтверждение email — GrabLy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body {
+    background: #0f0f0f;
+    color: #FAFAFA;
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+  .verify-box {
+    max-width: 480px;
+    text-align: center;
+    padding: 40px;
+    background: #1a1a1f;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    margin: 24px;
+  }
+  .verify-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+  }
+  .verify-icon.loading {
+    background: rgba(124,58,237,0.15);
+    border: 2px solid rgba(124,58,237,0.3);
+  }
+  .verify-icon.success {
+    background: rgba(16,185,129,0.15);
+    border: 2px solid rgba(16,185,129,0.3);
+    color: #10B981;
+  }
+  .verify-icon.error {
+    background: rgba(239,68,68,0.15);
+    border: 2px solid rgba(239,68,68,0.3);
+    color: #EF4444;
+  }
+  .verify-title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .verify-text {
+    color: #A1A1AA;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .verify-button {
+    display: inline-block;
+    background: #7C3AED;
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    transition: all 0.25s;
+    box-shadow: 0 0 20px rgba(124,58,237,0.25);
+  }
+  .verify-button:hover {
+    background: #6D28D9;
+    box-shadow: 0 0 32px rgba(124,58,237,0.4);
+    transform: translateY(-1px);
+  }
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(124,58,237,0.2);
+    border-top-color: #7C3AED;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+</style>
+</head>
+<body>
+  <div class="verify-box">
+    <div id="icon" class="verify-icon loading">
+      <div class="spinner"></div>
+    </div>
+    <div id="title" class="verify-title">Подтверждаем...</div>
+    <div id="text" class="verify-text">Пожалуйста подождите</div>
+    <a id="button" href="/" class="verify-button" style="display:none">
+      Вернуться на главную
+    </a>
+  </div>
+
+<script>
+var API_URL = 'https://grably-server-production.up.railway.app';
+var urlParams = new URLSearchParams(window.location.search);
+var token = urlParams.get('token');
+
+if (!token) {
+  showError('Токен не найден', 'Ссылка неверная или устарела');
+} else {
+  fetch(API_URL + '/verify?token=' + encodeURIComponent(token))
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.success) {
+        showSuccess('Email подтверждён! \ud83c\udf89',
+          'На ваш счёт начислено 10 GC. Откройте расширение GrabLy и войдите в аккаунт.');
+      } else {
+        showError('Ошибка подтверждения',
+          data.detail || 'Ссылка неверная или устарела');
+      }
+    })
+    .catch(function() {
+      showError('Ошибка соединения',
+        'Не удалось связаться с сервером. Попробуйте позже.');
+    });
+}
+
+function showSuccess(title, text) {
+  document.getElementById('icon').className = 'verify-icon success';
+  document.getElementById('icon').innerHTML = '\u2713';
+  document.getElementById('title').textContent = title;
+  document.getElementById('text').textContent = text;
+  document.getElementById('button').style.display = 'inline-block';
+}
+
+function showError(title, text) {
+  document.getElementById('icon').className = 'verify-icon error';
+  document.getElementById('icon').innerHTML = '\u2715';
+  document.getElementById('title').textContent = title;
+  document.getElementById('text').textContent = text;
+  document.getElementById('button').style.display = 'inline-block';
+}
+</script>
+</body>
+</html>

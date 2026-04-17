@@ -31,6 +31,16 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .btn-sm::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);animation:shm 3s ease-in-out infinite}
 @keyframes shm{0%{left:-100%}50%{left:150%}100%{left:150%}}
 .btn-sm:hover{background:var(--accent-h);box-shadow:0 0 28px var(--glow-s)}
+.btn-ghost{padding:9px 20px;border-radius:8px;font-size:14px;font-weight:600;color:var(--t2);transition:all .2s;border:1px solid transparent}
+.btn-ghost:hover{color:var(--t);background:rgba(255,255,255,.04);border-color:var(--border)}
+.lang-sw{position:relative}
+.lang-btn{background:transparent;border:1px solid transparent;border-radius:8px;padding:7px 9px;color:var(--t3);cursor:pointer;display:flex;align-items:center;transition:all .2s}
+.lang-btn:hover{color:var(--t);background:rgba(255,255,255,.04);border-color:var(--border)}
+.lang-dd{display:none;position:absolute;top:100%;right:0;margin-top:8px;background:rgba(18,18,22,.97);border:1px solid var(--border);border-radius:12px;min-width:160px;max-height:320px;overflow-y:auto;box-shadow:0 12px 40px rgba(0,0,0,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:200;padding:4px 0}
+.lang-dd.open{display:block}
+.lang-dd button{display:block;width:100%;text-align:left;padding:9px 16px;font-size:13px;color:var(--t2);background:transparent;border:none;cursor:pointer;font-family:inherit;transition:background .15s,color .15s}
+.lang-dd button:hover{background:rgba(124,58,237,.1);color:var(--t)}
+.lang-dd button.active{color:var(--accent-l);font-weight:600}
 .hero{padding:140px 0 60px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(124,58,237,.08) 0%,transparent 65%);pointer-events:none}
 .hero h1{font-size:clamp(32px,5.5vw,52px);font-weight:900;letter-spacing:-1.5px;line-height:1.1;margin-bottom:20px;position:relative;z-index:1}
@@ -72,6 +82,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 <div class="nav-in">
   <a href="/" class="nav-logo"><svg width="100" height="28" viewBox="0 0 228 89" fill="none"><path d="M35.96.1C44.82-.44 57.02 1.1 64.72 5.67c-.01 2.24-.77 6.68-1.25 9-.46 1.97-1.41 2.32-3.18 1.74C49.4 12.97 38.63 11.82 28.18 17.66c-10.04 5.62-14.61 19.47-9.54 29.9 3.13 5.5 9.9 8.99 15.79 10.31 13.69 3.08 26.2-3.96 37.44-10.43-9.46.18-18.4.09-27.85-.49-4-.24-7.74-.1-11.83-.51-.28-2.3-.92-9.72.84-11.24.87-.28 2.07-.58 2.99-.6 10.71-.21 21.43-.61 32.14-.74 1.99-.02 3.94-.08 5.92.16 1.72 1.28 2.45 1.64 2.62 3.95.18 2.44.06 4.88.05 7.33l-.02 14.07c-.03 6.57.34 15.04-.31 21.58-.06.59-.94 1.77-1.33 2.3-3.06 1.19-4.35 1.71-7.61 2.11-.27-2.89.05-14.67-.91-15.75-.23-.09-6.2.1-6.5.23-2.85 2.8.95 13.88-1.93 16.93-.71.75-8.88 1.31-9.1.18-1.02-5.35.77-11.8-.95-16.96-.23-.69-7.29-.39-8.27.33-.88 1.12-.48 14.9-.35 17.11-3.61 1.05-6.84.92-10.47-.1-.09-4.83.22-10.57-.44-15.34-.05-.34-.35-1.16-.74-1.31-1.24-.47-5.61-.32-6.72.05-1.13 1.7-.56 12.57-.9 15.92-1.41-.18-7.47-1.35-8.34-2.27-2.86-2.46-.82-13.88-2.28-16.23C5.21 61.21 1.6 56.58.43 47.95c-1.48-10.83.84-23.6 7.33-32.62C14.99 5.24 24.14 1.81 35.96.1z" fill="url(#gw)"/><path d="M143.72 19.35c.08.01.47.18.56.22.45 1.35-.11 16.69.1 19.22.85-.15 2.82-2.58 4.44-3.36 2.71-1.43 6.67-1.9 9.61-.88 12.73 4.42 12.25 25.16.88 30.92-6.48 2.57-10.25.63-15.19-3.49.27 1.36.27 2.49.32 3.88-2.8-.27-7.52-.24-10.33.02-.09-14.85.38-31.93-.18-46.53 3.2.16 6.57.08 9.78.02zm4.94 39.07l3.58.05c6.25-3.19 6.52-11.04 1.66-15.75-1.55-.35-2.2-.56-3.76-.44-7.7 1.01-7.5 12.11-2.78 15.32.43.29.86.57 1.3.83z" fill="url(#gw)"/><path d="M217.75 34.25c2.13.24 7.76.09 10.19.13-3.41 8.43-6.89 18.75-9.95 27.46-2.44 6.34-4.64 18.28-13.31 18.18-2.24-.03-4.49.1-6.72.21.04-2.8.02-5.6-.06-8.4 5.93 1.22 6.41-.58 8.52-5.55-1.03-3.47-3.53-9.02-5-12.55-2.64-6.4-5.21-12.83-7.7-19.3l4.47-.1c2.3-.04 4.15-.13 6.44.16 2.31 5.97 4.68 14.86 6.81 21.16 1.45-5.66 4.03-16.37 6.3-21.42z" fill="url(#gw)"/><path d="M113.08 33.29c7.36-.66 15.16 1.41 16.3 9.51 1 7.09.23 15.72.46 22.98-2.68-.39-6.93-.27-9.74-.25-.1-1.88-.03-2.79.33-4.62-1.8 1.79-3.64 3.87-6.18 4.51-3.39.85-6.33.45-9.34-1.17l-.72-.64c-2.09-1.9-3.09-4.21-3.18-6.94-.11-6.31 4.22-8.79 9.7-10.24 3.35-.88 5.57-.48 8.93-.58.55-.4.32-.14.59-.9-.15-1.85-1.15-2.84-2.31-4.23-3.41-.74-6.44-.76-9.68.52-1.2.48-2.38 1.2-3.63.86-.96-1.26-.53-5.08-.46-6.8 3.64-1.32 5.13-1.49 8.93-2.01zm1.47 25.95c1.83-.44 1.91-.53 3.53-1.42.63-.94 1.23-1.86 1.91-2.77.04-1.12.06-2.53.19-3.61l-3.97.1c-2.01.32-3.43.33-4.89 2.07-1.69 2.01.76 5.85 2.96 5.77l.27-.15z" fill="url(#gw)"/><path d="M182.24 21.34c.52-.03.26-.04.81.26.43 1.33.3 32.21.17 35.56 4.36-.29 11.19-.4 15.53-.11.27 1.87.18 6.45.25 8.68-2.89-.18-6.13-.08-9.05-.06-5.69.07-11.7-.15-17.35.13-.28-4.24-.08-11.11-.08-15.55l-.04-28.83c3.16.04 6.62.13 9.75-.05z" fill="url(#gw)"/><path d="M97.84 33.52c1.15-.11 2.85-.09 4.05-.1-.13 1.84.13 7.92-.38 9.18l-.47.19c-2.31-.84-5.94-.27-7.65 1.58-2.69 2.91-1.85 7.8-1.85 11.47 0 2.99.13 6.07.2 9.07-1.84.04-9.56.51-10.64-.36-.39-9.59.05-20.87-.09-30.7 3.06.23 7.46.14 10.6.16-.03 1.15-.18 3.05.22 4.04.84-.15 2.16-2.61 3.3-3.36 1.1-.72 1.41-.8 2.65-1.23z" fill="url(#gw)"/></svg></a>
   <div class="nav-right">
+    <div class="lang-sw"><button class="lang-btn" id="lang-toggle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></button><div class="lang-dd" id="lang-dd"></div></div>
     <a href="/install.html" class="btn-ghost" data-i18n="nav_login">Войти</a>
     <a href="/GrabLy.zip" download class="btn-sm" data-i18n="nav_install_btn">Установить бесплатно</a>
   </div>
@@ -132,9 +143,48 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 </div>
 </footer>
 
+<script src="/i18n.js"></script>
 <script>
 (function(){var e=document.querySelectorAll('.rv');var o=new IntersectionObserver(function(n){n.forEach(function(i){if(i.isIntersecting){i.target.classList.add('vis');o.unobserve(i.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});e.forEach(function(i){o.observe(i)})})();
 var nav=document.querySelector('.nav');window.addEventListener('scroll',function(){nav.style.background=window.scrollY>20?'rgba(15,15,15,.95)':'rgba(15,15,15,.8)'},{passive:true});
+
+/* Lang switcher */
+(function(){
+  var LANGS=[
+    {code:'ru',label:'\ud83c\uddf7\ud83c\uddfa \u0420\u0443\u0441\u0441\u043A\u0438\u0439'},
+    {code:'en',label:'\ud83c\uddec\ud83c\udde7 English'},
+    {code:'uk',label:'\ud83c\uddfa\ud83c\udde6 \u0423\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0430'},
+    {code:'de',label:'\ud83c\udde9\ud83c\uddea Deutsch'},
+    {code:'fr',label:'\ud83c\uddeb\ud83c\uddf7 Fran\u00e7ais'},
+    {code:'es',label:'\ud83c\uddea\ud83c\uddf8 Espa\u00f1ol'},
+    {code:'pt',label:'\ud83c\udde7\ud83c\uddf7 Portugu\u00eas'},
+    {code:'pl',label:'\ud83c\uddf5\ud83c\uddf1 Polski'},
+    {code:'tr',label:'\ud83c\uddf9\ud83c\uddf7 T\u00fcrk\u00e7e'},
+    {code:'zh',label:'\ud83c\udde8\ud83c\uddf3 \u4e2d\u6587'},
+    {code:'ja',label:'\ud83c\uddef\ud83c\uddf5 \u65e5\u672c\u8a9e'},
+    {code:'ko',label:'\ud83c\uddf0\ud83c\uddf7 \ud55c\uad6d\uc5b4'},
+    {code:'hi',label:'\ud83c\uddee\ud83c\uddf3 \u0939\u093f\u0928\u094d\u0926\u0940'},
+    {code:'ar',label:'\ud83c\uddf8\ud83c\udde6 \u0627\u0644\u0639\u0631\u0628\u064a\u0629'}
+  ];
+  var dd=document.getElementById('lang-dd');
+  var btn=document.getElementById('lang-toggle');
+  if(!dd||!btn)return;
+  var cur=localStorage.getItem('grably_lang')||(navigator.language||'en').split('-')[0];
+  if(!LANGS.find(function(l){return l.code===cur}))cur='en';
+  LANGS.forEach(function(l){
+    var b=document.createElement('button');
+    b.textContent=l.label;
+    if(l.code===cur)b.className='active';
+    b.addEventListener('click',function(){
+      localStorage.setItem('grably_lang',l.code);
+      dd.classList.remove('open');
+      location.reload();
+    });
+    dd.appendChild(b);
+  });
+  btn.addEventListener('click',function(e){e.stopPropagation();dd.classList.toggle('open')});
+  document.addEventListener('click',function(e){if(!dd.contains(e.target)&&e.target!==btn)dd.classList.remove('open')});
+})();
 </script>
 </body>
 </html>

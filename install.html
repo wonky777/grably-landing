@@ -192,24 +192,24 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 <!-- HERO -->
 <section class="hero">
 <div class="container">
-  <h1 class="rv">Установка за 2 минуты</h1>
-  <p class="hero-sub rv">Пошаговая инструкция с картинками</p>
+  <h1 class="rv" data-i18n="inst_title">Установка за 2 минуты</h1>
+  <p class="hero-sub rv" data-i18n="inst_sub">Пошаговая инструкция с картинками</p>
 </div>
 </section>
 
 <!-- INSTALLATION STEPS -->
 <section class="section" style="border-top:1px solid var(--border-s)">
 <div class="container">
-  <p class="sec-label rv">Установка</p>
-  <h2 class="sec-title rv">Как установить GrabLy</h2>
+  <p class="sec-label rv" data-i18n="inst_label">Установка</p>
+  <h2 class="sec-title rv" data-i18n="inst_section_title">Как установить GrabLy</h2>
 
   <!-- Step 1 -->
   <div class="install-step rv">
     <div class="step-text">
       <div class="step-num">1</div>
-      <h3>Скачайте расширение</h3>
-      <p>Нажмите кнопку ниже чтобы скачать ZIP архив с расширением. Файл весит менее 1 МБ.</p>
-      <a href="/GrabLy.zip" download class="btn-a">&#11015; Скачать GrabLy.zip</a>
+      <h3 data-i18n="inst_s1_title">Скачайте расширение</h3>
+      <p data-i18n="inst_s1_text" data-i18n-html>Нажмите кнопку ниже чтобы скачать ZIP архив с расширением. Файл весит менее 1 МБ.</p>
+      <a href="/GrabLy.zip" download class="btn-a" data-i18n="inst_s1_btn" data-i18n-html>&#11015; Скачать GrabLy.zip</a>
     </div>
     <div class="step-visual">
       <img src="/images/step1-download.png" alt="Скачать GrabLy" class="screenshot"/>
@@ -220,8 +220,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   <div class="install-step rev rv">
     <div class="step-text">
       <div class="step-num">2</div>
-      <h3>Распакуйте архив</h3>
-      <p>Распакуйте скачанный ZIP в любую удобную папку. Например, на Рабочий стол. Внутри будет папка <strong>GrabLy</strong> с файлами расширения.</p>
+      <h3 data-i18n="inst_s2_title">Распакуйте архив</h3>
+      <p data-i18n="inst_s2_text" data-i18n-html>Распакуйте скачанный ZIP в любую удобную папку. Например, на Рабочий стол. Внутри будет папка <strong>GrabLy</strong> с файлами расширения.</p>
     </div>
     <div class="step-visual">
       <img src="/images/step2-unzipped.png" alt="Распакованная папка" class="screenshot"/>
@@ -232,8 +232,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   <div class="install-step rv">
     <div class="step-text">
       <div class="step-num">3</div>
-      <h3>Откройте chrome://extensions</h3>
-      <p>Вставьте адрес в адресную строку браузера Chrome и нажмите Enter. Откроется страница управления расширениями.</p>
+      <h3 data-i18n="inst_s3_title">Откройте chrome://extensions</h3>
+      <p data-i18n="inst_s3_text" data-i18n-html>Вставьте адрес в адресную строку браузера Chrome и нажмите Enter. Откроется страница управления расширениями.</p>
       <div class="copy-code" id="copy-ext">chrome://extensions<svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div>
     </div>
     <div class="step-visual">
@@ -245,8 +245,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   <div class="install-step rev rv">
     <div class="step-text">
       <div class="step-num">4</div>
-      <h3>Включите режим разработчика</h3>
-      <p>В правом верхнем углу страницы расширений найдите переключатель <strong>&laquo;Режим разработчика&raquo;</strong> (Developer mode) и включите его.</p>
+      <h3 data-i18n="inst_s4_title">Включите режим разработчика</h3>
+      <p data-i18n="inst_s4_text" data-i18n-html>В правом верхнем углу страницы расширений найдите переключатель <strong>&laquo;Режим разработчика&raquo;</strong> (Developer mode) и включите его.</p>
     </div>
     <div class="step-visual">
       <img src="/images/step4-dev-mode.png" alt="Режим разработчика" class="screenshot"/>
@@ -257,8 +257,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   <div class="install-step rv">
     <div class="step-text">
       <div class="step-num">5</div>
-      <h3>Загрузите расширение</h3>
-      <p>Нажмите кнопку <strong>&laquo;Загрузить распакованное расширение&raquo;</strong> (Load unpacked) и выберите папку GrabLy, которую вы распаковали на шаге 2.</p>
+      <h3 data-i18n="inst_s5_title">Загрузите расширение</h3>
+      <p data-i18n="inst_s5_text" data-i18n-html>Нажмите кнопку <strong>&laquo;Загрузить распакованное расширение&raquo;</strong> (Load unpacked) и выберите папку GrabLy, которую вы распаковали на шаге 2.</p>
     </div>
     <div class="step-visual">
       <img src="/images/step5-load-unpacked.png" alt="Загрузить распакованное" class="screenshot"/>
@@ -269,8 +269,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   <div class="install-step rev rv">
     <div class="step-text">
       <div class="step-num">6</div>
-      <h3>Закрепите расширение</h3>
-      <p>Нажмите на иконку пазла <strong>&#129513;</strong> в правом верхнем углу браузера и закрепите GrabLy нажав на булавку. Теперь иконка GrabLy всегда будет на виду.</p>
+      <h3 data-i18n="inst_s6_title">Закрепите расширение</h3>
+      <p data-i18n="inst_s6_text" data-i18n-html>Нажмите на иконку пазла <strong>&#129513;</strong> в правом верхнем углу браузера и закрепите GrabLy нажав на булавку. Теперь иконка GrabLy всегда будет на виду.</p>
     </div>
     <div class="step-visual">
       <img src="/images/step6-pin.png" alt="Закрепление расширения" class="screenshot"/>
@@ -282,15 +282,15 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 <!-- HOW TO USE -->
 <section class="section" style="border-top:1px solid var(--border-s)">
 <div class="container">
-  <p class="sec-label rv">Использование</p>
-  <h2 class="sec-title rv">Как пользоваться</h2>
+  <p class="sec-label rv" data-i18n="inst_use_label">Использование</p>
+  <h2 class="sec-title rv" data-i18n="inst_use_title">Как пользоваться</h2>
 
   <!-- Use 1 -->
   <div class="install-step rv">
     <div class="step-text">
       <div class="step-num">1</div>
-      <h3>Создайте аккаунт</h3>
-      <p>Нажмите на иконку GrabLy в панели браузера и зарегистрируйтесь. Вы получите <strong>10 GC бесплатно</strong> после подтверждения email.</p>
+      <h3 data-i18n="inst_u1_title">Создайте аккаунт</h3>
+      <p data-i18n="inst_u1_text" data-i18n-html>Нажмите на иконку GrabLy в панели браузера и зарегистрируйтесь. Вы получите <strong>10 GC бесплатно</strong> после подтверждения email.</p>
     </div>
   </div>
 
@@ -298,8 +298,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   <div class="install-step rev rv">
     <div class="step-text">
       <div class="step-num">2</div>
-      <h3>Подтвердите email</h3>
-      <p>Откройте почту и перейдите по ссылке из письма от GrabLy. После подтверждения на ваш баланс будет начислено 10 GC.</p>
+      <h3 data-i18n="inst_u2_title">Подтвердите email</h3>
+      <p data-i18n="inst_u2_text" data-i18n-html>Откройте почту и перейдите по ссылке из письма от GrabLy. После подтверждения на ваш баланс будет начислено 10 GC.</p>
     </div>
   </div>
 
@@ -307,8 +307,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   <div class="install-step rv">
     <div class="step-text">
       <div class="step-num">3</div>
-      <h3>Откройте урок</h3>
-      <p>Зайдите на любую платформу с видеокурсом (GetCourse, Kinescope и др.) и начните воспроизведение видео. GrabLy автоматически определит формат.</p>
+      <h3 data-i18n="inst_u3_title">Откройте урок</h3>
+      <p data-i18n="inst_u3_text" data-i18n-html>Зайдите на любую платформу с видеокурсом (GetCourse, Kinescope и др.) и начните воспроизведение видео. GrabLy автоматически определит формат.</p>
     </div>
   </div>
 
@@ -316,8 +316,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   <div class="install-step rev rv">
     <div class="step-text">
       <div class="step-num">4</div>
-      <h3>Скачайте видео</h3>
-      <p>Нажмите на иконку GrabLy — расширение покажет найденное видео. Нажмите <strong>&laquo;Скачать за 10 GC&raquo;</strong> и видео сохранится на компьютер в MP4.</p>
+      <h3 data-i18n="inst_u4_title">Скачайте видео</h3>
+      <p data-i18n="inst_u4_text" data-i18n-html>Нажмите на иконку GrabLy — расширение покажет найденное видео. Нажмите <strong>&laquo;Скачать за 10 GC&raquo;</strong> и видео сохранится на компьютер в MP4.</p>
     </div>
   </div>
 </div>
@@ -326,8 +326,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 <!-- PLATFORMS -->
 <section class="section" style="border-top:1px solid var(--border-s)">
 <div class="container" style="text-align:center">
-  <p class="sec-label rv">Совместимость</p>
-  <h2 class="sec-title rv">Поддерживаемые платформы</h2>
+  <p class="sec-label rv" data-i18n="inst_compat">Совместимость</p>
+  <h2 class="sec-title rv" data-i18n="inst_platforms">Поддерживаемые платформы</h2>
   <div class="platforms-grid rv">
     <div class="platform-card">Kinescope</div>
     <div class="platform-card">Vimeo</div>
@@ -348,19 +348,19 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 <!-- FAQ -->
 <section class="section" id="faq-install" style="border-top:1px solid var(--border-s)">
 <div class="container">
-  <p class="sec-label rv">FAQ</p>
-  <h2 class="sec-title rv" style="text-align:center">Вопросы по установке</h2>
+  <p class="sec-label rv" data-i18n="inst_faq_label">FAQ</p>
+  <h2 class="sec-title rv" style="text-align:center" data-i18n="inst_faq_title">Вопросы по установке</h2>
   <div class="faq-list">
 
-    <div class="faq-item rv"><button class="faq-q"><span>Что делать если Chrome заблокировал установку?</span><svg class="faq-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div class="faq-ai">Chrome может показать предупреждение при установке распакованного расширения. Это нормально — просто нажмите &laquo;Сохранить&raquo; при скачивании и следуйте инструкции выше. Расширение полностью безопасно.</div></div></div>
+    <div class="faq-item rv"><button class="faq-q"><span data-i18n="inst_fq1">Что делать если Chrome заблокировал установку?</span><svg class="faq-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div class="faq-ai" data-i18n="inst_fa1" data-i18n-html>Chrome может показать предупреждение при установке распакованного расширения. Это нормально — просто нажмите &laquo;Сохранить&raquo; при скачивании и следуйте инструкции выше. Расширение полностью безопасно.</div></div></div>
 
-    <div class="faq-item rv"><button class="faq-q"><span>Нужно ли обновлять расширение вручную?</span><svg class="faq-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div class="faq-ai">Да, при установке вручную автоматические обновления не работают. Скачайте новую версию с сайта, замените файлы в папке и нажмите кнопку обновления на странице chrome://extensions.</div></div></div>
+    <div class="faq-item rv"><button class="faq-q"><span data-i18n="inst_fq2">Нужно ли обновлять расширение вручную?</span><svg class="faq-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div class="faq-ai" data-i18n="inst_fa2" data-i18n-html>Да, при установке вручную автоматические обновления не работают. Скачайте новую версию с сайта, замените файлы в папке и нажмите кнопку обновления на странице chrome://extensions.</div></div></div>
 
-    <div class="faq-item rv"><button class="faq-q"><span>Работает ли в других браузерах (Edge, Opera, Яндекс)?</span><svg class="faq-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div class="faq-ai">Да! GrabLy работает во всех Chromium-браузерах: Microsoft Edge, Opera, Яндекс.Браузер, Brave и других. Процесс установки аналогичный — откройте страницу расширений и загрузите распакованную папку.</div></div></div>
+    <div class="faq-item rv"><button class="faq-q"><span data-i18n="inst_fq3">Работает ли в других браузерах (Edge, Opera, Яндекс)?</span><svg class="faq-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div class="faq-ai" data-i18n="inst_fa3" data-i18n-html>Да! GrabLy работает во всех Chromium-браузерах: Microsoft Edge, Opera, Яндекс.Браузер, Brave и других. Процесс установки аналогичный — откройте страницу расширений и загрузите распакованную папку.</div></div></div>
 
-    <div class="faq-item rv"><button class="faq-q"><span>Как удалить расширение?</span><svg class="faq-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div class="faq-ai">Откройте chrome://extensions, найдите GrabLy и нажмите &laquo;Удалить&raquo;. Ваш аккаунт и баланс GC сохранятся — при повторной установке просто войдите в свой аккаунт.</div></div></div>
+    <div class="faq-item rv"><button class="faq-q"><span data-i18n="inst_fq4">Как удалить расширение?</span><svg class="faq-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div class="faq-ai" data-i18n="inst_fa4" data-i18n-html>Откройте chrome://extensions, найдите GrabLy и нажмите &laquo;Удалить&raquo;. Ваш аккаунт и баланс GC сохранятся — при повторной установке просто войдите в свой аккаунт.</div></div></div>
 
-    <div class="faq-item rv"><button class="faq-q"><span>Потеряю ли я GC если переустановлю?</span><svg class="faq-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div class="faq-ai">Нет. Ваш баланс GC хранится на сервере и привязан к аккаунту, а не к расширению. После переустановки просто войдите в свой аккаунт и все GC будут на месте.</div></div></div>
+    <div class="faq-item rv"><button class="faq-q"><span data-i18n="inst_fq5">Потеряю ли я GC если переустановлю?</span><svg class="faq-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div class="faq-ai" data-i18n="inst_fa5" data-i18n-html>Нет. Ваш баланс GC хранится на сервере и привязан к аккаунту, а не к расширению. После переустановки просто войдите в свой аккаунт и все GC будут на месте.</div></div></div>
 
   </div>
 </div>
@@ -375,22 +375,22 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
       <p>Скачивай видео с онлайн-курсов в один клик. Расширение для Chrome.</p>
     </div>
     <div class="footer-col">
-      <h4>Продукт</h4>
-      <a href="/">Главная</a>
-      <a href="/install.html">Инструкция</a>
-      <a href="/#pricing">Цены</a>
+      <h4 data-i18n="footer_product">Продукт</h4>
+      <a href="/" data-i18n="footer_home">Главная</a>
+      <a href="/install.html" data-i18n="footer_install">Инструкция</a>
+      <a href="/#pricing" data-i18n="footer_pricing">Цены</a>
     </div>
     <div class="footer-col">
-      <h4>Компания</h4>
-      <a href="/about.html">О нас</a>
-      <a href="/contacts.html">Контакты</a>
-      <a href="/blog.html">Блог</a>
+      <h4 data-i18n="footer_company">Компания</h4>
+      <a href="/about.html" data-i18n="footer_about">О нас</a>
+      <a href="/contacts.html" data-i18n="footer_contacts">Контакты</a>
+      <a href="/blog.html" data-i18n="footer_blog">Блог</a>
     </div>
     <div class="footer-col">
-      <h4>Помощь</h4>
-      <a href="/support.html">Поддержка</a>
-      <a href="/privacy.html">Конфиденциальность</a>
-      <a href="/terms.html">Условия</a>
+      <h4 data-i18n="footer_help">Помощь</h4>
+      <a href="/support.html" data-i18n="footer_support">Поддержка</a>
+      <a href="/privacy.html" data-i18n="footer_privacy">Конфиденциальность</a>
+      <a href="/terms.html" data-i18n="footer_terms">Условия</a>
     </div>
   </div>
   <div class="footer-bottom">

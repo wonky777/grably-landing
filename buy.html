@@ -160,70 +160,70 @@ img{max-width:100%;display:block}
 <!-- ===== HERO ===== -->
 <section class="hero">
 <div class="container">
-  <h1 class="rv">Пополнить GC</h1>
-  <p class="hero-sub rv">Выберите готовый пакет или введите своё количество</p>
+  <h1 class="rv" data-i18n="buy_title">Пополнить GC</h1>
+  <p class="hero-sub rv" data-i18n="buy_sub">Выберите готовый пакет или введите своё количество</p>
 </div>
 </section>
 
 <!-- ===== PRICING CARDS ===== -->
 <div class="pricing">
   <div class="price-card rv">
-    <p class="price-name">Старт</p>
+    <p class="price-name" data-i18n="pricing_start_name">Старт</p>
     <p class="price-gc">10 GC</p>
     <p class="price-rub">100 &#8381;</p>
     <p class="price-save">&nbsp;</p>
-    <p class="price-desc">Попробовать</p>
-    <button class="btn-po" onclick="alert('Скоро! Вы выбрали 10 GC за 100\u20BD')">Выбрать</button>
+    <p class="price-desc" data-i18n="pricing_start_desc">Попробовать</p>
+    <button class="btn-po" data-i18n="pricing_select" onclick="alert('Скоро! Вы выбрали 10 GC за 100\u20BD')">Выбрать</button>
   </div>
   <div class="price-card rv">
-    <p class="price-name">Оптимальный</p>
+    <p class="price-name" data-i18n="pricing_optimal_name">Оптимальный</p>
     <p class="price-gc">50 GC</p>
     <p class="price-rub">475 &#8381;</p>
     <p class="price-save">Скидка 5%</p>
-    <p class="price-desc">Для одного курса</p>
-    <button class="btn-po" onclick="alert('Скоро! Вы выбрали 50 GC за 475\u20BD')">Выбрать</button>
+    <p class="price-desc" data-i18n="pricing_optimal_desc">Для одного курса</p>
+    <button class="btn-po" data-i18n="pricing_select" onclick="alert('Скоро! Вы выбрали 50 GC за 475\u20BD')">Выбрать</button>
   </div>
   <div class="price-card rv">
-    <p class="price-name">Продвинутый</p>
+    <p class="price-name" data-i18n="pricing_advanced_name">Продвинутый</p>
     <p class="price-gc">150 GC</p>
     <p class="price-rub">1 350 &#8381;</p>
     <p class="price-save">Скидка 7%</p>
-    <p class="price-desc">Для нескольких курсов</p>
-    <button class="btn-po" onclick="alert('Скоро! Вы выбрали 150 GC за 1350\u20BD')">Выбрать</button>
+    <p class="price-desc" data-i18n="pricing_advanced_desc">Для нескольких курсов</p>
+    <button class="btn-po" data-i18n="pricing_select" onclick="alert('Скоро! Вы выбрали 150 GC за 1350\u20BD')">Выбрать</button>
   </div>
   <div class="price-card rv">
-    <p class="price-name">Максимум</p>
+    <p class="price-name" data-i18n="pricing_max_name">Максимум</p>
     <p class="price-gc">500 GC</p>
     <p class="price-rub">4 500 &#8381;</p>
     <p class="price-save">Скидка 10%</p>
-    <p class="price-desc">Для больших объёмов</p>
-    <button class="btn-po" onclick="alert('Скоро! Вы выбрали 500 GC за 4500\u20BD')">Выбрать</button>
+    <p class="price-desc" data-i18n="pricing_max_desc">Для больших объёмов</p>
+    <button class="btn-po" data-i18n="pricing_select" onclick="alert('Скоро! Вы выбрали 500 GC за 4500\u20BD')">Выбрать</button>
   </div>
   <div class="price-card pop rv">
     <span class="price-badge">Рекомендуем</span>
-    <p class="price-name">Безлимит</p>
+    <p class="price-name" data-i18n="pricing_unlimited_name">Безлимит</p>
     <p class="price-gc">&infin;</p>
     <p class="price-rub">4 990 &#8381;</p>
     <p class="price-save">Навсегда</p>
-    <p class="price-desc">Без ограничений, одна покупка</p>
-    <button class="btn-pf" onclick="alert('Скоро! Вы выбрали Безлимит за 4990\u20BD')">Выбрать</button>
+    <p class="price-desc" data-i18n="pricing_unlimited_desc">Без ограничений, одна покупка</p>
+    <button class="btn-pf" data-i18n="pricing_select" onclick="alert('Скоро! Вы выбрали Безлимит за 4990\u20BD')">Выбрать</button>
   </div>
 </div>
 
 <!-- ===== CUSTOM AMOUNT ===== -->
 <div class="custom-amount-section">
-  <h2 class="section-title">Нужно другое количество?</h2>
-  <p class="section-subtitle">Введите любое количество GC — от 10 до 10000</p>
+  <h2 class="section-title" data-i18n="buy_custom_title">Нужно другое количество?</h2>
+  <p class="section-subtitle" data-i18n="buy_custom_sub">Введите любое количество GC — от 10 до 10000</p>
   <div class="custom-amount-card">
     <div class="custom-input-row">
       <div class="custom-input-wrap">
-        <label>Количество GC</label>
+        <label data-i18n="buy_gc_label">Количество GC</label>
         <input type="number" id="custom-gc" min="10" max="10000" step="10" value="100" class="custom-gc-input">
         <span class="custom-input-hint">мин. 10 GC, шаг 10</span>
       </div>
       <div class="custom-arrow">&rarr;</div>
       <div class="custom-price-wrap">
-        <label>К оплате</label>
+        <label data-i18n="buy_price_label">К оплате</label>
         <div class="custom-price"><span id="custom-price">1000</span> &thinsp;&#8381;</div>
         <span class="custom-input-hint"><span id="custom-videos">10</span> видео</span>
       </div>
@@ -237,7 +237,7 @@ img{max-width:100%;display:block}
       <span class="discount-old"><s><span id="custom-price-old">0</span> &#8381;</s></span>
     </div>
     <button class="btn-primary btn-custom-buy" id="btn-custom-buy">Купить за <span id="btn-price">1000</span> &#8381;</button>
-    <p class="custom-note">Оплата скоро станет доступна</p>
+    <p class="custom-note" data-i18n="buy_note">Оплата скоро станет доступна</p>
   </div>
 </div>
 
@@ -250,22 +250,22 @@ img{max-width:100%;display:block}
       <p>Скачивай видео с онлайн-курсов в один клик. Расширение для Chrome.</p>
     </div>
     <div class="footer-col">
-      <h4>Продукт</h4>
-      <a href="/">Главная</a>
-      <a href="/install.html">Инструкция</a>
-      <a href="/#pricing">Цены</a>
+      <h4 data-i18n="footer_product">Продукт</h4>
+      <a href="/" data-i18n="footer_home">Главная</a>
+      <a href="/install.html" data-i18n="footer_install">Инструкция</a>
+      <a href="/#pricing" data-i18n="footer_pricing">Цены</a>
     </div>
     <div class="footer-col">
-      <h4>Компания</h4>
-      <a href="/about.html">О нас</a>
-      <a href="/contacts.html">Контакты</a>
-      <a href="/blog.html">Блог</a>
+      <h4 data-i18n="footer_company">Компания</h4>
+      <a href="/about.html" data-i18n="footer_about">О нас</a>
+      <a href="/contacts.html" data-i18n="footer_contacts">Контакты</a>
+      <a href="/blog.html" data-i18n="footer_blog">Блог</a>
     </div>
     <div class="footer-col">
-      <h4>Помощь</h4>
-      <a href="/support.html">Поддержка</a>
-      <a href="/privacy.html">Конфиденциальность</a>
-      <a href="/terms.html">Условия</a>
+      <h4 data-i18n="footer_help">Помощь</h4>
+      <a href="/support.html" data-i18n="footer_support">Поддержка</a>
+      <a href="/privacy.html" data-i18n="footer_privacy">Конфиденциальность</a>
+      <a href="/terms.html" data-i18n="footer_terms">Условия</a>
     </div>
   </div>
   <div class="footer-bottom">

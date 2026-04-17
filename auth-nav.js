@@ -26,7 +26,7 @@ function renderAuthNav() {
             '<div class="profile-bal">' + (user.unlimited ? '\u267E\uFE0F \u0411\u0435\u0437\u043B\u0438\u043C\u0438\u0442' : (user.coins || 0) + ' GC') + '</div>' +
           '</div>' +
           '<a href="/profile.html" class="profile-it">\uD83D\uDC64 \u041F\u0440\u043E\u0444\u0438\u043B\u044C</a>' +
-          '<a href="/#pricing" class="profile-it">\uD83D\uDCB0 \u041F\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u044C</a>' +
+          '<a href="/buy.html" class="profile-it">\uD83D\uDCB0 \u041F\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u044C</a>' +
           '<a href="#" class="profile-it" id="logout-link">\uD83D\uDEAA \u0412\u044B\u0439\u0442\u0438</a>' +
         '</div>' +
       '</div>';

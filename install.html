@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Установка GrabLy — пошаговая инструкция</title>
+<meta name="description" content="Как установить и настроить расширение GrabLy для Chrome. Пошаговая инструкция с картинками.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',system-ui,sans-serif;background:#0f0f0f;color:#FAFAFA;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+:root{
+  --accent:#7C3AED;--accent-h:#6D28D9;--accent-l:#A78BFA;--accent-xl:#C4B5FD;
+  --glow:rgba(124,58,237,.25);--glow-s:rgba(124,58,237,.45);
+  --bg:#0f0f0f;--card:#1a1a1f;
+  --border:rgba(255,255,255,.1);--border-s:rgba(255,255,255,.06);
+  --t:#FAFAFA;--t2:#A1A1AA;--t3:#71717A;--t4:#3f3f46;
+  --max:1180px;--ease:cubic-bezier(.16,1,.3,1);
+}
+.container{max-width:var(--max);margin:0 auto;padding:0 24px}
+.rv{opacity:0;transform:translateY(36px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.vis{opacity:1;transform:translateY(0)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:center;background:rgba(15,15,15,.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border-s)}
+.nav-in{max-width:var(--max);width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo svg{height:28px;width:auto;display:block;filter:drop-shadow(0 0 12px rgba(120,75,192,.35))}
+.nav-center{display:flex;gap:32px}
+.nav-center a{font-size:14px;font-weight:500;color:var(--t3);transition:color .2s}
+.nav-center a:hover{color:var(--t)}
+.nav-center a.active{color:var(--accent-l)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.btn-ghost{padding:9px 20px;border-radius:8px;font-size:14px;font-weight:600;color:var(--t2);transition:all .2s;border:1px solid transparent}
+.btn-ghost:hover{color:var(--t);background:rgba(255,255,255,.04);border-color:var(--border)}
+.btn-sm{padding:9px 22px;border-radius:8px;font-size:14px;font-weight:600;color:#fff;background:var(--accent);box-shadow:0 0 16px var(--glow);transition:all .25s;position:relative;overflow:hidden}
+.btn-sm::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);animation:shm 3s ease-in-out infinite}
+@keyframes shm{0%{left:-100%}50%{left:150%}100%{left:150%}}
+.btn-sm:hover{background:var(--accent-h);box-shadow:0 0 28px var(--glow-s)}
+
+/* BUTTONS */
+.btn-a{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:15px 32px;border-radius:12px;font-size:16px;font-weight:700;
+  color:#fff;background:var(--accent);position:relative;overflow:hidden;
+  box-shadow:0 0 28px var(--glow),0 4px 14px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.12);
+  transition:all .3s;
+}
+.btn-a::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);animation:shm 3s ease-in-out infinite}
+.btn-a:hover{background:var(--accent-h);box-shadow:0 0 48px var(--glow-s);transform:translateY(-2px)}
+.btn-a:active{transform:translateY(0) scale(.98)}
+
+/* HERO */
+.hero{padding:140px 0 60px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(124,58,237,.08) 0%,transparent 65%);pointer-events:none}
+.hero h1{font-size:clamp(32px,5.5vw,60px);font-weight:900;letter-spacing:-2px;line-height:1.1;margin-bottom:20px;position:relative;z-index:1}
+.hero-sub{font-size:clamp(15px,2vw,20px);color:var(--t2);max-width:480px;margin:0 auto;position:relative;z-index:1}
+
+/* SECTIONS */
+.section{padding:80px 0}
+.sec-label{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent-l);margin-bottom:16px}
+.sec-title{font-size:clamp(28px,4vw,42px);font-weight:900;letter-spacing:-1px;line-height:1.15;margin-bottom:48px}
+
+/* STEPS */
+.install-step{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+  padding:48px 0;border-bottom:1px solid var(--border-s);
+}
+.install-step:last-child{border-bottom:none}
+.install-step.rev .step-text{order:2}
+.install-step.rev .step-visual{order:1}
+.step-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:44px;height:44px;border-radius:12px;
+  background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);
+  color:var(--accent-l);font-size:18px;font-weight:900;
+  margin-bottom:16px;
+}
+.step-text h3{font-size:22px;font-weight:800;letter-spacing:-.3px;margin-bottom:12px}
+.step-text p{font-size:15px;color:var(--t2);line-height:1.7;margin-bottom:16px;max-width:440px}
+
+/* SCREENSHOT PLACEHOLDER */
+.screenshot-placeholder{
+  width:100%;max-width:700px;height:400px;
+  background:linear-gradient(135deg,rgba(124,58,237,.1),rgba(255,255,255,.03));
+  border:2px dashed rgba(124,58,237,.3);border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent);font-size:14px;font-weight:500;
+  margin:0 auto;
+}
+
+/* COPY CODE */
+.copy-code{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--card);border:1px solid rgba(124,58,237,.3);
+  border-radius:8px;padding:10px 18px;
+  font-family:'JetBrains Mono','Cascadia Code','Consolas',monospace;
+  font-size:14px;color:var(--accent-l);cursor:pointer;
+  transition:all .2s;
+}
+.copy-code:hover{border-color:var(--accent);background:rgba(124,58,237,.08)}
+.copy-code.copied{background:rgba(16,185,129,.12);border-color:rgba(16,185,129,.3);color:#10B981}
+.copy-icon{width:16px;height:16px;flex-shrink:0;opacity:.6}
+
+/* PLATFORMS GRID */
+.platforms-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+  max-width:800px;margin:0 auto;
+}
+.platform-card{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:20px;text-align:center;font-size:14px;font-weight:600;
+  color:var(--t2);transition:all .25s;
+}
+.platform-card:hover{border-color:rgba(124,58,237,.3);color:var(--accent-l);transform:translateY(-2px)}
+.platform-card .p-note{font-size:10px;color:var(--t4);margin-top:4px;font-weight:400}
+
+/* FAQ */
+.faq-list{max-width:720px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border-s)}
+.faq-q{width:100%;padding:22px 0;display:flex;align-items:center;justify-content:space-between;font-size:16px;font-weight:600;color:var(--t);text-align:left;cursor:pointer;transition:color .2s;gap:16px}
+.faq-q:hover{color:var(--accent-l)}
+.faq-ch{width:20px;height:20px;flex-shrink:0;transition:transform .3s var(--ease);color:var(--t3)}
+.faq-item.open .faq-ch{transform:rotate(180deg);color:var(--accent-l)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-ai{padding:0 0 22px;font-size:15px;color:var(--t2);line-height:1.7}
+
+/* FOOTER */
+.footer{padding:60px 0 40px;border-top:1px solid var(--border-s);background:rgba(255,255,255,.01)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand svg{height:24px;width:auto;filter:drop-shadow(0 0 8px rgba(120,75,192,.2));margin-bottom:12px}
+.footer-brand p{font-size:13px;color:var(--t3);max-width:240px;line-height:1.6}
+.footer-col h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--t4);margin-bottom:14px}
+.footer-col a{display:block;font-size:13px;color:var(--t3);padding:4px 0;transition:color .2s}
+.footer-col a:hover{color:var(--accent-l)}
+.footer-bottom{border-top:1px solid var(--border-s);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:12px;color:var(--t4)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .install-step{grid-template-columns:1fr;gap:32px;text-align:center}
+  .install-step.rev .step-text,.install-step.rev .step-visual{order:unset}
+  .step-text p{margin-left:auto;margin-right:auto}
+  .platforms-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .section{padding:48px 0}
+  .nav-center{display:none}
+  .nav-right .btn-ghost{display:none}
+  .hero{padding:110px 0 40px}
+  .screenshot-placeholder{height:240px}
+  .platforms-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute"><defs><radialGradient id="gw" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(91.438 49.27) rotate(-.571) scale(131.813 199.929)"><stop stop-color="#442976"/><stop offset="1" stop-color="#784BC0"/></radialGradient></defs></svg>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="nav-in">
+  <a href="/" class="nav-logo"><svg width="100" height="28" viewBox="0 0 228 89" fill="none"><path d="M35.96.1C44.82-.44 57.02 1.1 64.72 5.67c-.01 2.24-.77 6.68-1.25 9-.46 1.97-1.41 2.32-3.18 1.74C49.4 12.97 38.63 11.82 28.18 17.66c-10.04 5.62-14.61 19.47-9.54 29.9 3.13 5.5 9.9 8.99 15.79 10.31 13.69 3.08 26.2-3.96 37.44-10.43-9.46.18-18.4.09-27.85-.49-4-.24-7.74-.1-11.83-.51-.28-2.3-.92-9.72.84-11.24.87-.28 2.07-.58 2.99-.6 10.71-.21 21.43-.61 32.14-.74 1.99-.02 3.94-.08 5.92.16 1.72 1.28 2.45 1.64 2.62 3.95.18 2.44.06 4.88.05 7.33l-.02 14.07c-.03 6.57.34 15.04-.31 21.58-.06.59-.94 1.77-1.33 2.3-3.06 1.19-4.35 1.71-7.61 2.11-.27-2.89.05-14.67-.91-15.75-.23-.09-6.2.1-6.5.23-2.85 2.8.95 13.88-1.93 16.93-.71.75-8.88 1.31-9.1.18-1.02-5.35.77-11.8-.95-16.96-.23-.69-7.29-.39-8.27.33-.88 1.12-.48 14.9-.35 17.11-3.61 1.05-6.84.92-10.47-.1-.09-4.83.22-10.57-.44-15.34-.05-.34-.35-1.16-.74-1.31-1.24-.47-5.61-.32-6.72.05-1.13 1.7-.56 12.57-.9 15.92-1.41-.18-7.47-1.35-8.34-2.27-2.86-2.46-.82-13.88-2.28-16.23C5.21 61.21 1.6 56.58.43 47.95c-1.48-10.83.84-23.6 7.33-32.62C14.99 5.24 24.14 1.81 35.96.1z" fill="url(#gw)"/><path d="M143.72 19.35c.08.01.47.18.56.22.45 1.35-.11 16.69.1 19.22.85-.15 2.82-2.58 4.44-3.36 2.71-1.43 6.67-1.9 9.61-.88 12.73 4.42 12.25 25.16.88 30.92-6.48 2.57-10.25.63-15.19-3.49.27 1.36.27 2.49.32 3.88-2.8-.27-7.52-.24-10.33.02-.09-14.85.38-31.93-.18-46.53 3.2.16 6.57.08 9.78.02zm4.94 39.07l3.58.05c6.25-3.19 6.52-11.04 1.66-15.75-1.55-.35-2.2-.56-3.76-.44-7.7 1.01-7.5 12.11-2.78 15.32.43.29.86.57 1.3.83z" fill="url(#gw)"/><path d="M217.75 34.25c2.13.24 7.76.09 10.19.13-3.41 8.43-6.89 18.75-9.95 27.46-2.44 6.34-4.64 18.28-13.31 18.18-2.24-.03-4.49.1-6.72.21.04-2.8.02-5.6-.06-8.4 5.93 1.22 6.41-.58 8.52-5.55-1.03-3.47-3.53-9.02-5-12.55-2.64-6.4-5.21-12.83-7.7-19.3l4.47-.1c2.3-.04 4.15-.13 6.44.16 2.31 5.97 4.68 14.86 6.81 21.16 1.45-5.66 4.03-16.37 6.3-21.42z" fill="url(#gw)"/><path d="M113.08 33.29c7.36-.66 15.16 1.41 16.3 9.51 1 7.09.23 15.72.46 22.98-2.68-.39-6.93-.27-9.74-.25-.1-1.88-.03-2.79.33-4.62-1.8 1.79-3.64 3.87-6.18 4.51-3.39.85-6.33.45-9.34-1.17l-.72-.64c-2.09-1.9-3.09-4.21-3.18-6.94-.11-6.31 4.22-8.79 9.7-10.24 3.35-.88 5.57-.48 8.93-.58.55-.4.32-.14.59-.9-.15-1.85-1.15-2.84-2.31-4.23-3.41-.74-6.44-.76-9.68.52-1.2.48-2.38 1.2-3.63.86-.96-1.26-.53-5.08-.46-6.8 3.64-1.32 5.13-1.49 8.93-2.01zm1.47 25.95c1.83-.44 1.91-.53 3.53-1.42.63-.94 1.23-1.86 1.91-2.77.04-1.12.06-2.53.19-3.61l-3.97.1c-2.01.32-3.43.33-4.89 2.07-1.69 2.01.76 5.85 2.96 5.77l.27-.15z" fill="url(#gw)"/><path d="M182.24 21.34c.52-.03.26-.04.81.26.43 1.33.3 32.21.17 35.56 4.36-.29 11.19-.4 15.53-.11.27 1.87.18 6.45.25 8.68-2.89-.18-6.13-.08-9.05-.06-5.69.07-11.7-.15-17.35.13-.28-4.24-.08-11.11-.08-15.55l-.04-28.83c3.16.04 6.62.13 9.75-.05z" fill="url(#gw)"/><path d="M97.84 33.52c1.15-.11 2.85-.09 4.05-.1-.13 1.84.13 7.92-.38 9.18l-.47.19c-2.31-.84-5.94-.27-7.65 1.58-2.69 2.91-1.85 7.8-1.85 11.47 0 2.99.13 6.07.2 9.07-1.84.04-9.56.51-10.64-.36-.39-9.59.05-20.87-.09-30.7 3.06.23 7.46.14 10.6.16-.03 1.15-.18 3.05.22 4.04.84-.15 2.16-2.61 3.3-3.36 1.1-.72 1.41-.8 2.65-1.23z" fill="url(#gw)"/></svg></a>
+  <div class="nav-center">
+    <a href="install.html" class="active">Установка</a>
+    <a href="/#features">Возможности</a>
+    <a href="/#pricing">Цены</a>
+    <a href="/#faq">FAQ</a>
+  </div>
+  <div class="nav-right">
+    <a href="https://grably.site/login" class="btn-ghost">Войти</a>
+    <a href="https://grably.site/download" class="btn-sm">Установить бесплатно</a>
+  </div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+  <h1 class="rv">Установка за 2 минуты</h1>
+  <p class="hero-sub rv">Пошаговая инструкция с картинками</p>
+</div>
+</section>
+
+<!-- INSTALLATION STEPS -->
+<section class="section" style="border-top:1px solid var(--border-s)">
+<div class="container">
+  <p class="sec-label rv">Установка</p>
+  <h2 class="sec-title rv">Как установить GrabLy</h2>
+
+  <!-- Step 1 -->
+  <div class="install-step rv">
+    <div class="step-text">
+      <div class="step-num">1</div>
+      <h3>Скачайте расширение</h3>
+      <p>Нажмите кнопку ниже чтобы скачать ZIP архив с расширением. Файл весит менее 1 МБ.</p>
+      <a href="https://grably.site/download" class="btn-a">&#11015; Скачать GrabLy.zip</a>
+    </div>
+    <div class="step-visual">
+      <div class="screenshot-placeholder">Скриншот: кнопка скачивания</div>
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="install-step rev rv">
+    <div class="step-text">
+      <div class="step-num">2</div>
+      <h3>Распакуйте архив</h3>
+      <p>Распакуйте скачанный ZIP в любую удобную папку. Например, на Рабочий стол. Внутри будет папка <strong>GrabLy</strong> с файлами расширения.</p>
+    </div>
+    <div class="step-visual">
+      <div class="screenshot-placeholder">Скриншот: распакованная папка</div>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="install-step rv">
+    <div class="step-text">
+      <div class="step-num">3</div>
+      <h3>Откройте chrome://extensions</h3>
+      <p>Вставьте адрес в адресную строку браузера Chrome и нажмите Enter. Откроется страница управления расширениями.</p>
+      <div class="copy-code" id="copy-ext">chrome://extensions<svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div>
+    </div>
+    <div class="step-visual">
+      <div class="screenshot-placeholder">Скриншот: страница расширений</div>
+    </div>
+  </div>
+
+  <!-- Step 4 -->
+  <div class="install-step rev rv">
+    <div class="step-text">
+      <div class="step-num">4</div>
+      <h3>Включите режим разработчика</h3>
+      <p>В правом верхнем углу страницы расширений найдите переключатель <strong>&laquo;Режим разработчика&raquo;</strong> (Developer mode) и включите его.</p>
+    </div>
+    <div class="step-visual">
+      <div class="screenshot-placeholder">Скриншот: переключатель Developer mode</div>
+    </div>
+  </div>
+
+  <!-- Step 5 -->
+  <div class="install-step rv">
+    <div class="step-text">
+      <div class="step-num">5</div>
+      <h3>Загрузите расширение</h3>
+      <p>Нажмите кнопку <strong>&laquo;Загрузить распакованное расширение&raquo;</strong> (Load unpacked) и выберите папку GrabLy, которую вы распаковали на шаге 2.</p>
+    </div>
+    <div class="step-visual">
+      <div class="screenshot-placeholder">Скриншот: кнопка Load unpacked</div>
+    </div>
+  </div>
+
+  <!-- Step 6 -->
+  <div class="install-step rev rv">
+    <div class="step-text">
+      <div class="step-num">6</div>
+      <h3>Закрепите расширение</h3>
+      <p>Нажмите на иконку пазла <strong>&#129513;</strong> в правом верхнем углу браузера и закрепите GrabLy нажав на булавку. Теперь иконка GrabLy всегда будет на виду.</p>
+    </div>
+    <div class="step-visual">
+      <div class="screenshot-placeholder">Скриншот: закрепление расширения</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- HOW TO USE -->
+<section class="section" style="border-top:1px solid var(--border-s)">
+<div class="container">
+  <p class="sec-label rv">Использование</p>
+  <h2 class="sec-title rv">Как пользоваться</h2>
+
+  <!-- Use 1 -->
+  <div class="install-step rv">
+    <div class="step-text">
+      <div class="step-num">1</div>
+      <h3>Создайте аккаунт</h3>
+      <p>Нажмите на иконку GrabLy в панели браузера и зарегистрируйтесь. Вы получите <strong>10 GC бесплатно</strong> после подтверждения email.</p>
+    </div>
+    <div class="step-visual">
+      <div class="screenshot-placeholder">Скриншот: экран регистрации</div>
+    </div>
+  </div>
+
+  <!-- Use 2 -->
+  <div class="install-step rev rv">
+    <div class="step-text">
+      <div class="step-num">2</div>
+      <h3>Подтвердите email</h3>
+      <p>Откройте почту и перейдите по ссылке из письма от GrabLy. После подтверждения на ваш баланс будет начислено 10 GC.</p>
+    </div>
+    <div class="step-visual">
+      <div class="screenshot-placeholder">Скриншот: письмо верификации</div>
+    </div>
+  </div>
+
+  <!-- Use 3 -->
+  <div class="install-step rv">
+    <div class="step-text">
+      <div class="step-num">3</div>
+      <h3>Откройте урок</h3>
+      <p>Зайдите на любую платформу с видеокурсом (GetCourse, Kinescope и др.) и начните воспроизведение видео. GrabLy автоматически определит формат.</p>
+    </div>
+    <div class="step-visual">
+      <div class="screenshot-placeholder">Скриншот: видеоплеер на платформе</div>
+    </div>
+  </div>
+
+  <!-- Use 4 -->
+  <div class="install-step rev rv">
+    <div class="step-text">
+      <div class="step-num">4</div>
+      <h3>Скачайте видео</h3>
+      <p>Нажмите на иконку GrabLy — расширение покажет найденное видео. Нажмите <strong>&laquo;Скачать за 10 GC&raquo;</strong> и видео сохранится на компьютер в MP4.</p>
+    </div>
+    <div class="step-visual">
+      <div class="screenshot-placeholder">Скриншот: попап с видео</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PLATFORMS -->
+<section class="section" style="border-top:1px solid var(--border-s)">
+<div class="container" style="text-align:center">
+  <p class="sec-label rv">Совместимость</p>
+  <h2 class="sec-title rv">Поддерживаемые платформы</h2>
+  <div class="platforms-grid rv">
+    <div class="platform-card">Kinescope</div>
+    <div class="platform-card">Vimeo</div>
+    <div class="platform-card">VK Video</div>
+    <div class="platform-card">Rutube</div>
+    <div class="platform-card">Wistia</div>
+    <div class="platform-card">JW Player</div>
+    <div class="platform-card">Brightcove</div>
+    <div class="platform-card">Kaltura</div>
+    <div class="platform-card">Panopto</div>
+    <div class="platform-card">Bunny.net</div>
+    <div class="platform-card">GetCourse</div>
+    <div class="platform-card">HTML5 Video</div>
+  </div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq-install" style="border-top:1px solid var(--border-s)">
+<div class="container">
+  <p class="sec-label rv">FAQ</p>
+  <h2 class="sec-title rv" style="text-align:center">Вопросы по установке</h2>
+  <div class="faq-list">
+
+    <div class="faq-item rv"><button class="faq-q"><span>Что делать если Chrome заблокировал установку?</span><svg class="faq-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div class="faq-ai">Chrome может показать предупреждение при установке распакованного расширения. Это нормально — просто нажмите &laquo;Сохранить&raquo; при скачивании и следуйте инструкции выше. Расширение полностью безопасно.</div></div></div>
+
+    <div class="faq-item rv"><button class="faq-q"><span>Нужно ли обновлять расширение вручную?</span><svg class="faq-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div class="faq-ai">Да, при установке вручную автоматические обновления не работают. Скачайте новую версию с сайта, замените файлы в папке и нажмите кнопку обновления на странице chrome://extensions.</div></div></div>
+
+    <div class="faq-item rv"><button class="faq-q"><span>Работает ли в других браузерах (Edge, Opera, Яндекс)?</span><svg class="faq-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div class="faq-ai">Да! GrabLy работает во всех Chromium-браузерах: Microsoft Edge, Opera, Яндекс.Браузер, Brave и других. Процесс установки аналогичный — откройте страницу расширений и загрузите распакованную папку.</div></div></div>
+
+    <div class="faq-item rv"><button class="faq-q"><span>Как удалить расширение?</span><svg class="faq-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div class="faq-ai">Откройте chrome://extensions, найдите GrabLy и нажмите &laquo;Удалить&raquo;. Ваш аккаунт и баланс GC сохранятся — при повторной установке просто войдите в свой аккаунт.</div></div></div>
+
+    <div class="faq-item rv"><button class="faq-q"><span>Потеряю ли я GC если переустановлю?</span><svg class="faq-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div class="faq-ai">Нет. Ваш баланс GC хранится на сервере и привязан к аккаунту, а не к расширению. После переустановки просто войдите в свой аккаунт и все GC будут на месте.</div></div></div>
+
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <svg width="80" height="22" viewBox="0 0 228 89" fill="none"><path d="M35.96.1C44.82-.44 57.02 1.1 64.72 5.67c-.01 2.24-.77 6.68-1.25 9-.46 1.97-1.41 2.32-3.18 1.74C49.4 12.97 38.63 11.82 28.18 17.66c-10.04 5.62-14.61 19.47-9.54 29.9 3.13 5.5 9.9 8.99 15.79 10.31 13.69 3.08 26.2-3.96 37.44-10.43-9.46.18-18.4.09-27.85-.49-4-.24-7.74-.1-11.83-.51-.28-2.3-.92-9.72.84-11.24.87-.28 2.07-.58 2.99-.6 10.71-.21 21.43-.61 32.14-.74 1.99-.02 3.94-.08 5.92.16 1.72 1.28 2.45 1.64 2.62 3.95.18 2.44.06 4.88.05 7.33l-.02 14.07c-.03 6.57.34 15.04-.31 21.58-.06.59-.94 1.77-1.33 2.3-3.06 1.19-4.35 1.71-7.61 2.11-.27-2.89.05-14.67-.91-15.75-.23-.09-6.2.1-6.5.23-2.85 2.8.95 13.88-1.93 16.93-.71.75-8.88 1.31-9.1.18-1.02-5.35.77-11.8-.95-16.96-.23-.69-7.29-.39-8.27.33-.88 1.12-.48 14.9-.35 17.11-3.61 1.05-6.84.92-10.47-.1-.09-4.83.22-10.57-.44-15.34-.05-.34-.35-1.16-.74-1.31-1.24-.47-5.61-.32-6.72.05-1.13 1.7-.56 12.57-.9 15.92-1.41-.18-7.47-1.35-8.34-2.27-2.86-2.46-.82-13.88-2.28-16.23C5.21 61.21 1.6 56.58.43 47.95c-1.48-10.83.84-23.6 7.33-32.62C14.99 5.24 24.14 1.81 35.96.1z" fill="url(#gw)"/><path d="M143.72 19.35c.08.01.47.18.56.22.45 1.35-.11 16.69.1 19.22.85-.15 2.82-2.58 4.44-3.36 2.71-1.43 6.67-1.9 9.61-.88 12.73 4.42 12.25 25.16.88 30.92-6.48 2.57-10.25.63-15.19-3.49.27 1.36.27 2.49.32 3.88-2.8-.27-7.52-.24-10.33.02-.09-14.85.38-31.93-.18-46.53 3.2.16 6.57.08 9.78.02zm4.94 39.07l3.58.05c6.25-3.19 6.52-11.04 1.66-15.75-1.55-.35-2.2-.56-3.76-.44-7.7 1.01-7.5 12.11-2.78 15.32.43.29.86.57 1.3.83z" fill="url(#gw)"/><path d="M217.75 34.25c2.13.24 7.76.09 10.19.13-3.41 8.43-6.89 18.75-9.95 27.46-2.44 6.34-4.64 18.28-13.31 18.18-2.24-.03-4.49.1-6.72.21.04-2.8.02-5.6-.06-8.4 5.93 1.22 6.41-.58 8.52-5.55-1.03-3.47-3.53-9.02-5-12.55-2.64-6.4-5.21-12.83-7.7-19.3l4.47-.1c2.3-.04 4.15-.13 6.44.16 2.31 5.97 4.68 14.86 6.81 21.16 1.45-5.66 4.03-16.37 6.3-21.42z" fill="url(#gw)"/><path d="M113.08 33.29c7.36-.66 15.16 1.41 16.3 9.51 1 7.09.23 15.72.46 22.98-2.68-.39-6.93-.27-9.74-.25-.1-1.88-.03-2.79.33-4.62-1.8 1.79-3.64 3.87-6.18 4.51-3.39.85-6.33.45-9.34-1.17l-.72-.64c-2.09-1.9-3.09-4.21-3.18-6.94-.11-6.31 4.22-8.79 9.7-10.24 3.35-.88 5.57-.48 8.93-.58.55-.4.32-.14.59-.9-.15-1.85-1.15-2.84-2.31-4.23-3.41-.74-6.44-.76-9.68.52-1.2.48-2.38 1.2-3.63.86-.96-1.26-.53-5.08-.46-6.8 3.64-1.32 5.13-1.49 8.93-2.01zm1.47 25.95c1.83-.44 1.91-.53 3.53-1.42.63-.94 1.23-1.86 1.91-2.77.04-1.12.06-2.53.19-3.61l-3.97.1c-2.01.32-3.43.33-4.89 2.07-1.69 2.01.76 5.85 2.96 5.77l.27-.15z" fill="url(#gw)"/><path d="M182.24 21.34c.52-.03.26-.04.81.26.43 1.33.3 32.21.17 35.56 4.36-.29 11.19-.4 15.53-.11.27 1.87.18 6.45.25 8.68-2.89-.18-6.13-.08-9.05-.06-5.69.07-11.7-.15-17.35.13-.28-4.24-.08-11.11-.08-15.55l-.04-28.83c3.16.04 6.62.13 9.75-.05z" fill="url(#gw)"/><path d="M97.84 33.52c1.15-.11 2.85-.09 4.05-.1-.13 1.84.13 7.92-.38 9.18l-.47.19c-2.31-.84-5.94-.27-7.65 1.58-2.69 2.91-1.85 7.8-1.85 11.47 0 2.99.13 6.07.2 9.07-1.84.04-9.56.51-10.64-.36-.39-9.59.05-20.87-.09-30.7 3.06.23 7.46.14 10.6.16-.03 1.15-.18 3.05.22 4.04.84-.15 2.16-2.61 3.3-3.36 1.1-.72 1.41-.8 2.65-1.23z" fill="url(#gw)"/></svg>
+      <p>Скачивай видео с онлайн-курсов в один клик. Расширение для Chrome.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Продукт</h4>
+      <a href="install.html">Установка</a>
+      <a href="/#pricing">Цены</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h4>Компания</h4>
+      <a href="https://grably.site/about">О нас</a>
+      <a href="mailto:support@grably.site">Контакты</a>
+      <a href="https://grably.site/blog">Блог</a>
+    </div>
+    <div class="footer-col">
+      <h4>Помощь</h4>
+      <a href="mailto:support@grably.site">Поддержка</a>
+      <a href="https://grably.site/privacy">Политика конфиденциальности</a>
+      <a href="https://grably.site/terms">Условия использования</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2024 GrabLy. Все права защищены.</span>
+  </div>
+</div>
+</footer>
+
+<script>
+/* Reveal */
+(function(){
+  var els=document.querySelectorAll('.rv');
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}});
+  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){io.observe(el)});
+})();
+
+/* FAQ */
+document.querySelectorAll('.faq-q').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var item=btn.closest('.faq-item'),a=item.querySelector('.faq-a'),open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(o){o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight=null});
+    if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
+  });
+});
+
+/* Copy code */
+document.querySelectorAll('.copy-code').forEach(function(el){
+  el.addEventListener('click',function(){
+    var text=el.textContent.replace(/\s+/g,' ').trim();
+    // Remove the SVG text content
+    text=text.replace(/chrome:\/\/extensions.*$/,'chrome://extensions');
+    navigator.clipboard.writeText('chrome://extensions');
+    el.classList.add('copied');
+    setTimeout(function(){el.classList.remove('copied')},2000);
+  });
+});
+
+/* Nav scroll */
+var nav=document.querySelector('.nav');
+window.addEventListener('scroll',function(){nav.style.background=window.scrollY>20?'rgba(15,15,15,.95)':'rgba(15,15,15,.8)'},{passive:true});
+</script>
+</body>
+</html>

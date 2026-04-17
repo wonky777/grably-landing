@@ -210,15 +210,24 @@ if (!userData) {
   const email = user.email || '';
   document.getElementById('user-email').textContent = email;
 
-  // Fetch balance
+  var deviceId = (typeof getOrCreateDeviceId === 'function') ? getOrCreateDeviceId() : (localStorage.getItem('grably_device_id') || '');
+
   async function loadProfile() {
     try {
-      const res = await fetch(API_URL + '/balance?email=' + encodeURIComponent(email));
+      var res = await fetch(API_URL + '/balance', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ email: email, device_id: deviceId })
+      });
       if (res.ok) {
-        const data = await res.json();
-        const coins = data.coins !== undefined ? data.coins : data.balance || 0;
+        var data = await res.json();
+        var coins = data.unlimited ? '\u267E\uFE0F' : (data.coins || 0);
         document.getElementById('user-coins').textContent = coins;
-        document.getElementById('hero-balance').textContent = coins;
+        var heroB = document.getElementById('hero-balance');
+        if (heroB) heroB.textContent = data.unlimited ? '\u267E\uFE0F \u0411\u0435\u0437\u043B\u0438\u043C\u0438\u0442' : (data.coins || 0) + ' GC';
+        user.coins = data.coins;
+        user.unlimited = data.unlimited;
+        localStorage.setItem('grably_user', JSON.stringify(user));
       }
     } catch (e) {
       console.error('Failed to load balance', e);
@@ -227,12 +236,15 @@ if (!userData) {
 
   async function loadReferral() {
     try {
-      const res = await fetch(API_URL + '/referral-info?email=' + encodeURIComponent(email));
+      var res = await fetch(API_URL + '/referral', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ email: email, device_id: deviceId })
+      });
       if (res.ok) {
-        const data = await res.json();
-        const refCode = data.referral_code || '';
-        document.getElementById('ref-link').value = window.location.origin + '/register.html?ref=' + refCode;
-        document.getElementById('ref-invited').textContent = data.invited || 0;
+        var data = await res.json();
+        document.getElementById('ref-link').value = data.link || '';
+        document.getElementById('ref-invited').textContent = data.total || 0;
         document.getElementById('ref-paid').textContent = data.paid || 0;
         document.getElementById('ref-earned').textContent = data.earned || 0;
       }

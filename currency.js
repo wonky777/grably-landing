@@ -21,7 +21,7 @@ function getCurrency() {
   if (stored && GRABLY_CURRENCIES[stored]) return stored;
   // Auto-detect from language
   var lang = localStorage.getItem('grably_lang') || (navigator.language || 'en').split('-')[0];
-  return (lang === 'ru' || lang === 'uk') ? 'RUB' : 'USD';
+  return lang === 'ru' ? 'RUB' : 'USD';
 }
 
 function setCurrency(code) {

@@ -85,14 +85,12 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .step-text h3{font-size:22px;font-weight:800;letter-spacing:-.3px;margin-bottom:12px}
 .step-text p{font-size:15px;color:var(--t2);line-height:1.7;margin-bottom:16px;max-width:440px}
 
-/* SCREENSHOT PLACEHOLDER */
-.screenshot-placeholder{
-  width:100%;max-width:700px;height:400px;
-  background:linear-gradient(135deg,rgba(124,58,237,.1),rgba(255,255,255,.03));
-  border:2px dashed rgba(124,58,237,.3);border-radius:16px;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--accent);font-size:14px;font-weight:500;
-  margin:0 auto;
+/* SCREENSHOT */
+.screenshot{
+  width:100%;max-width:700px;height:auto;
+  border:1px solid rgba(124,58,237,.2);border-radius:16px;
+  margin:24px auto;display:block;
+  box-shadow:0 20px 60px rgba(0,0,0,.4),0 0 40px rgba(124,58,237,.1);
 }
 
 /* COPY CODE */
@@ -156,6 +154,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   .nav-right .btn-ghost{display:none}
   .hero{padding:110px 0 40px}
   .screenshot-placeholder{height:240px}
+  .screenshot{border-radius:12px}
   .platforms-grid{grid-template-columns:repeat(2,1fr)}
   .footer-top{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;text-align:center}
@@ -206,7 +205,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
       <a href="/GrabLy.zip" download class="btn-a">&#11015; Скачать GrabLy.zip</a>
     </div>
     <div class="step-visual">
-      <div class="screenshot-placeholder">Скриншот: кнопка скачивания</div>
+      <img src="/images/step1-download.png" alt="Скачать GrabLy" class="screenshot"/>
     </div>
   </div>
 
@@ -218,7 +217,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
       <p>Распакуйте скачанный ZIP в любую удобную папку. Например, на Рабочий стол. Внутри будет папка <strong>GrabLy</strong> с файлами расширения.</p>
     </div>
     <div class="step-visual">
-      <div class="screenshot-placeholder">Скриншот: распакованная папка</div>
+      <img src="/images/step2-unzipped.png" alt="Распакованная папка" class="screenshot"/>
     </div>
   </div>
 
@@ -231,7 +230,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
       <div class="copy-code" id="copy-ext">chrome://extensions<svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div>
     </div>
     <div class="step-visual">
-      <div class="screenshot-placeholder">Скриншот: страница расширений</div>
+      <img src="/images/step3-extensions.png" alt="Страница расширений Chrome" class="screenshot"/>
     </div>
   </div>
 
@@ -243,7 +242,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
       <p>В правом верхнем углу страницы расширений найдите переключатель <strong>&laquo;Режим разработчика&raquo;</strong> (Developer mode) и включите его.</p>
     </div>
     <div class="step-visual">
-      <div class="screenshot-placeholder">Скриншот: переключатель Developer mode</div>
+      <img src="/images/step4-dev-mode.png" alt="Режим разработчика" class="screenshot"/>
     </div>
   </div>
 
@@ -255,7 +254,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
       <p>Нажмите кнопку <strong>&laquo;Загрузить распакованное расширение&raquo;</strong> (Load unpacked) и выберите папку GrabLy, которую вы распаковали на шаге 2.</p>
     </div>
     <div class="step-visual">
-      <div class="screenshot-placeholder">Скриншот: кнопка Load unpacked</div>
+      <img src="/images/step5-load-unpacked.png" alt="Загрузить распакованное" class="screenshot"/>
     </div>
   </div>
 
@@ -267,7 +266,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
       <p>Нажмите на иконку пазла <strong>&#129513;</strong> в правом верхнем углу браузера и закрепите GrabLy нажав на булавку. Теперь иконка GrabLy всегда будет на виду.</p>
     </div>
     <div class="step-visual">
-      <div class="screenshot-placeholder">Скриншот: закрепление расширения</div>
+      <img src="/images/step6-pin.png" alt="Закрепление расширения" class="screenshot"/>
     </div>
   </div>
 </div>

@@ -106,8 +106,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 
 <section class="profile-hero">
   <div class="container">
-    <h1 data-i18n="prof_hello" data-i18n-html>Привет, <span id="user-email"></span></h1>
-    <p data-i18n="prof_balance_label" data-i18n-html>Ваш баланс: <strong id="hero-balance">...</strong> GC</p>
+    <h1><span id="prof-hello-text">Привет,</span> <span id="user-email"></span></h1>
+    <p><span id="prof-bal-text">Ваш баланс:</span> <strong id="hero-balance">...</strong> GC</p>
   </div>
 </section>
 
@@ -206,12 +206,26 @@ const userData = localStorage.getItem('grably_user');
 if (!userData) {
   window.location.href = '/login.html';
 } else {
-  const user = JSON.parse(userData);
-  const email = user.email || '';
-  document.getElementById('user-email').textContent = email;
-
+  var user = JSON.parse(userData);
+  var email = user.email || '';
   var deviceId = (typeof getOrCreateDeviceId === 'function') ? getOrCreateDeviceId() : (localStorage.getItem('grably_device_id') || '');
 
+  // Translate static labels
+  if (typeof t === 'function') {
+    var helloEl = document.getElementById('prof-hello-text');
+    if (helloEl) helloEl.textContent = t('prof_hello');
+    var balTxt = document.getElementById('prof-bal-text');
+    if (balTxt) balTxt.textContent = t('prof_balance_label');
+  }
+
+  // Show cached data immediately
+  document.getElementById('user-email').textContent = email;
+  var cachedCoins = user.unlimited ? '\u267E\uFE0F' : (user.coins != null ? user.coins : '...');
+  document.getElementById('user-coins').textContent = cachedCoins;
+  var heroB = document.getElementById('hero-balance');
+  if (heroB) heroB.textContent = user.unlimited ? '\u267E\uFE0F' : ((user.coins != null ? user.coins : '...') + ' GC');
+
+  // Refresh from API
   async function loadProfile() {
     try {
       var res = await fetch(API_URL + '/balance', {
@@ -223,14 +237,13 @@ if (!userData) {
         var data = await res.json();
         var coins = data.unlimited ? '\u267E\uFE0F' : (data.coins || 0);
         document.getElementById('user-coins').textContent = coins;
-        var heroB = document.getElementById('hero-balance');
-        if (heroB) heroB.textContent = data.unlimited ? '\u267E\uFE0F \u0411\u0435\u0437\u043B\u0438\u043C\u0438\u0442' : (data.coins || 0) + ' GC';
+        if (heroB) heroB.textContent = data.unlimited ? '\u267E\uFE0F' : (data.coins || 0) + ' GC';
         user.coins = data.coins;
         user.unlimited = data.unlimited;
         localStorage.setItem('grably_user', JSON.stringify(user));
       }
     } catch (e) {
-      console.error('Failed to load balance', e);
+      console.error('Balance load error:', e);
     }
   }
 
@@ -249,7 +262,7 @@ if (!userData) {
         document.getElementById('ref-earned').textContent = data.earned || 0;
       }
     } catch (e) {
-      console.error('Failed to load referral info', e);
+      console.error('Referral load error:', e);
     }
   }
 

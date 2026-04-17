@@ -173,40 +173,40 @@ img{max-width:100%;display:block}
     <p class="price-rub">100 &#8381;</p>
     <p class="price-save">&nbsp;</p>
     <p class="price-desc" data-i18n="pricing_start_desc">Попробовать</p>
-    <button class="btn-po" data-i18n="pricing_select" onclick="alert('Скоро! Вы выбрали 10 GC за 100\u20BD')">Выбрать</button>
+    <button class="btn-po" data-i18n="pricing_select">Выбрать</button>
   </div>
   <div class="price-card rv">
     <p class="price-name" data-i18n="pricing_optimal_name">Оптимальный</p>
     <p class="price-gc">50 GC</p>
     <p class="price-rub">475 &#8381;</p>
-    <p class="price-save">Скидка 5%</p>
+    <p class="price-save" data-i18n="discount_5">Скидка 5%</p>
     <p class="price-desc" data-i18n="pricing_optimal_desc">Для одного курса</p>
-    <button class="btn-po" data-i18n="pricing_select" onclick="alert('Скоро! Вы выбрали 50 GC за 475\u20BD')">Выбрать</button>
+    <button class="btn-po" data-i18n="pricing_select">Выбрать</button>
   </div>
   <div class="price-card rv">
     <p class="price-name" data-i18n="pricing_advanced_name">Продвинутый</p>
     <p class="price-gc">150 GC</p>
     <p class="price-rub">1 350 &#8381;</p>
-    <p class="price-save">Скидка 7%</p>
+    <p class="price-save" data-i18n="discount_7">Скидка 7%</p>
     <p class="price-desc" data-i18n="pricing_advanced_desc">Для нескольких курсов</p>
-    <button class="btn-po" data-i18n="pricing_select" onclick="alert('Скоро! Вы выбрали 150 GC за 1350\u20BD')">Выбрать</button>
+    <button class="btn-po" data-i18n="pricing_select">Выбрать</button>
   </div>
   <div class="price-card rv">
     <p class="price-name" data-i18n="pricing_max_name">Максимум</p>
     <p class="price-gc">500 GC</p>
     <p class="price-rub">4 500 &#8381;</p>
-    <p class="price-save">Скидка 10%</p>
+    <p class="price-save" data-i18n="discount_10">Скидка 10%</p>
     <p class="price-desc" data-i18n="pricing_max_desc">Для больших объёмов</p>
-    <button class="btn-po" data-i18n="pricing_select" onclick="alert('Скоро! Вы выбрали 500 GC за 4500\u20BD')">Выбрать</button>
+    <button class="btn-po" data-i18n="pricing_select">Выбрать</button>
   </div>
   <div class="price-card pop rv">
-    <span class="price-badge">Рекомендуем</span>
+    <span class="price-badge" data-i18n="pricing_recommended">Рекомендуем</span>
     <p class="price-name" data-i18n="pricing_unlimited_name">Безлимит</p>
     <p class="price-gc">&infin;</p>
     <p class="price-rub">4 990 &#8381;</p>
-    <p class="price-save">Навсегда</p>
+    <p class="price-save" data-i18n="pricing_forever">Навсегда</p>
     <p class="price-desc" data-i18n="pricing_unlimited_desc">Без ограничений, одна покупка</p>
-    <button class="btn-pf" data-i18n="pricing_select" onclick="alert('Скоро! Вы выбрали Безлимит за 4990\u20BD')">Выбрать</button>
+    <button class="btn-pf" data-i18n="pricing_select">Выбрать</button>
   </div>
 </div>
 
@@ -219,13 +219,13 @@ img{max-width:100%;display:block}
       <div class="custom-input-wrap">
         <label data-i18n="buy_gc_label">Количество GC</label>
         <input type="number" id="custom-gc" min="10" max="10000" step="10" value="100" class="custom-gc-input">
-        <span class="custom-input-hint">мин. 10 GC, шаг 10</span>
+        <span class="custom-input-hint" data-i18n="buy_min_hint">мин. 10 GC, шаг 10</span>
       </div>
       <div class="custom-arrow">&rarr;</div>
       <div class="custom-price-wrap">
         <label data-i18n="buy_price_label">К оплате</label>
         <div class="custom-price"><span id="custom-price">1000</span> &thinsp;&#8381;</div>
-        <span class="custom-input-hint"><span id="custom-videos">10</span> видео</span>
+        <span class="custom-input-hint"><span id="custom-videos">10</span> <span data-i18n="buy_videos">видео</span></span>
       </div>
     </div>
     <div class="custom-slider-wrap">
@@ -233,10 +233,10 @@ img{max-width:100%;display:block}
       <div class="slider-ticks"><span>10</span><span>500</span><span>2500</span><span>5000</span><span>10000</span></div>
     </div>
     <div class="custom-discount" id="custom-discount" style="display:none">
-      <span class="discount-badge">Скидка <span id="discount-percent">5</span>%</span>
+      <span class="discount-badge"><span data-i18n="buy_discount">Скидка</span> <span id="discount-percent">5</span>%</span>
       <span class="discount-old"><s><span id="custom-price-old">0</span> &#8381;</s></span>
     </div>
-    <button class="btn-primary btn-custom-buy" id="btn-custom-buy">Купить за <span id="btn-price">1000</span> &#8381;</button>
+    <button class="btn-primary btn-custom-buy" id="btn-custom-buy"></button>
     <p class="custom-note" data-i18n="buy_note">Оплата скоро станет доступна</p>
   </div>
 </div>
@@ -353,18 +353,22 @@ window.addEventListener('scroll',function(){nav.style.background=window.scrollY>
     return {base:base,final:final,discount:discount};
   }
 
+  var _t = typeof t === 'function' ? t : function(k){return k};
+
+  function fmt(n){ return n.toLocaleString() }
+
   function update(gc){
     gc=Math.max(10,Math.min(10000,Math.round(gc/10)*10));
     gcInput.value=gc;
     slider.value=gc;
     var r=calculatePrice(gc);
-    priceEl.textContent=r.final.toLocaleString('ru-RU');
-    btnPrice.textContent=r.final.toLocaleString('ru-RU');
+    priceEl.textContent=fmt(r.final);
     videosEl.textContent=Math.floor(gc/10);
+    btnBuy.textContent=_t('buy_buy_for')+' '+fmt(r.final)+' \u20BD';
     if(r.discount>0){
       discountEl.style.display='flex';
       discountPercent.textContent=r.discount;
-      priceOldEl.textContent=r.base.toLocaleString('ru-RU');
+      priceOldEl.textContent=fmt(r.base);
     }else{
       discountEl.style.display='none';
     }
@@ -377,7 +381,7 @@ window.addEventListener('scroll',function(){nav.style.background=window.scrollY>
   btnBuy.addEventListener('click',function(){
     var gc=parseInt(gcInput.value)||10;
     var r=calculatePrice(gc);
-    alert('Скоро! Вы выбрали '+gc+' GC за '+r.final.toLocaleString('ru-RU')+'\u20BD');
+    alert(_t('buy_note')+' — '+gc+' GC / '+fmt(r.final)+' \u20BD');
   });
 
   update(100);

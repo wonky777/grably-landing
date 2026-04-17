@@ -170,7 +170,7 @@ img{max-width:100%;display:block}
   <div class="price-card rv">
     <p class="price-name" data-i18n="pricing_start_name">Старт</p>
     <p class="price-gc">10 GC</p>
-    <p class="price-rub">100 &#8381;</p>
+    <p class="price-rub" data-price="gc10">100 &#8381;</p>
     <p class="price-save">&nbsp;</p>
     <p class="price-desc" data-i18n="pricing_start_desc">Попробовать</p>
     <button class="btn-po" data-i18n="pricing_select">Выбрать</button>
@@ -178,7 +178,7 @@ img{max-width:100%;display:block}
   <div class="price-card rv">
     <p class="price-name" data-i18n="pricing_optimal_name">Оптимальный</p>
     <p class="price-gc">50 GC</p>
-    <p class="price-rub">475 &#8381;</p>
+    <p class="price-rub" data-price="gc50">475 &#8381;</p>
     <p class="price-save" data-i18n="discount_5">Скидка 5%</p>
     <p class="price-desc" data-i18n="pricing_optimal_desc">Для одного курса</p>
     <button class="btn-po" data-i18n="pricing_select">Выбрать</button>
@@ -186,7 +186,7 @@ img{max-width:100%;display:block}
   <div class="price-card rv">
     <p class="price-name" data-i18n="pricing_advanced_name">Продвинутый</p>
     <p class="price-gc">150 GC</p>
-    <p class="price-rub">1 350 &#8381;</p>
+    <p class="price-rub" data-price="gc150">1 350 &#8381;</p>
     <p class="price-save" data-i18n="discount_7">Скидка 7%</p>
     <p class="price-desc" data-i18n="pricing_advanced_desc">Для нескольких курсов</p>
     <button class="btn-po" data-i18n="pricing_select">Выбрать</button>
@@ -194,7 +194,7 @@ img{max-width:100%;display:block}
   <div class="price-card rv">
     <p class="price-name" data-i18n="pricing_max_name">Максимум</p>
     <p class="price-gc">500 GC</p>
-    <p class="price-rub">4 500 &#8381;</p>
+    <p class="price-rub" data-price="gc500">4 500 &#8381;</p>
     <p class="price-save" data-i18n="discount_10">Скидка 10%</p>
     <p class="price-desc" data-i18n="pricing_max_desc">Для больших объёмов</p>
     <button class="btn-po" data-i18n="pricing_select">Выбрать</button>
@@ -203,7 +203,7 @@ img{max-width:100%;display:block}
     <span class="price-badge" data-i18n="pricing_recommended">Рекомендуем</span>
     <p class="price-name" data-i18n="pricing_unlimited_name">Безлимит</p>
     <p class="price-gc">&infin;</p>
-    <p class="price-rub">4 990 &#8381;</p>
+    <p class="price-rub" data-price="unlimited">4 990 &#8381;</p>
     <p class="price-save" data-i18n="pricing_forever">Навсегда</p>
     <p class="price-desc" data-i18n="pricing_unlimited_desc">Без ограничений, одна покупка</p>
     <button class="btn-pf" data-i18n="pricing_select">Выбрать</button>
@@ -224,7 +224,7 @@ img{max-width:100%;display:block}
       <div class="custom-arrow">&rarr;</div>
       <div class="custom-price-wrap">
         <label data-i18n="buy_price_label">К оплате</label>
-        <div class="custom-price"><span id="custom-price">1000</span> &thinsp;&#8381;</div>
+        <div class="custom-price"><span id="custom-price">1000</span></div>
         <span class="custom-input-hint"><span id="custom-videos">10</span> <span data-i18n="buy_videos">видео</span></span>
       </div>
     </div>
@@ -234,7 +234,7 @@ img{max-width:100%;display:block}
     </div>
     <div class="custom-discount" id="custom-discount" style="display:none">
       <span class="discount-badge"><span data-i18n="buy_discount">Скидка</span> <span id="discount-percent">5</span>%</span>
-      <span class="discount-old"><s><span id="custom-price-old">0</span> &#8381;</s></span>
+      <span class="discount-old"><s><span id="custom-price-old">0</span></s></span>
     </div>
     <button class="btn-primary btn-custom-buy" id="btn-custom-buy"></button>
     <p class="custom-note" data-i18n="buy_note">Оплата скоро станет доступна</p>
@@ -275,6 +275,7 @@ img{max-width:100%;display:block}
 </footer>
 
 <script src="/i18n.js"></script>
+<script src="/currency.js"></script>
 <script src="/auth-nav.js"></script>
 <script>
 /* Reveal */
@@ -354,21 +355,21 @@ window.addEventListener('scroll',function(){nav.style.background=window.scrollY>
   }
 
   var _t = typeof t === 'function' ? t : function(k){return k};
-
-  function fmt(n){ return n.toLocaleString() }
+  var _fp = typeof formatPrice === 'function' ? formatPrice : function(n){return n+' \u20BD'};
+  var _cs = typeof getCurrencySymbol === 'function' ? getCurrencySymbol : function(){return '\u20BD'};
 
   function update(gc){
     gc=Math.max(10,Math.min(10000,Math.round(gc/10)*10));
     gcInput.value=gc;
     slider.value=gc;
     var r=calculatePrice(gc);
-    priceEl.textContent=fmt(r.final);
+    priceEl.textContent=_fp(r.final);
     videosEl.textContent=Math.floor(gc/10);
-    btnBuy.textContent=_t('buy_buy_for')+' '+fmt(r.final)+' \u20BD';
+    btnBuy.textContent=_t('buy_buy_for')+' '+_fp(r.final);
     if(r.discount>0){
       discountEl.style.display='flex';
       discountPercent.textContent=r.discount;
-      priceOldEl.textContent=fmt(r.base);
+      priceOldEl.textContent=_fp(r.base);
     }else{
       discountEl.style.display='none';
     }
@@ -381,7 +382,7 @@ window.addEventListener('scroll',function(){nav.style.background=window.scrollY>
   btnBuy.addEventListener('click',function(){
     var gc=parseInt(gcInput.value)||10;
     var r=calculatePrice(gc);
-    alert(_t('buy_note')+' — '+gc+' GC / '+fmt(r.final)+' \u20BD');
+    alert(_t('buy_note')+' \u2014 '+gc+' GC / '+_fp(r.final));
   });
 
   update(100);

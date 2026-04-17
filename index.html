@@ -437,7 +437,7 @@ img{max-width:100%;display:block}
     <div class="price-card rv">
       <p class="price-name" data-i18n="pricing_start_name">Старт</p>
       <p class="price-gc">10 GC</p>
-      <p class="price-rub">100 &#8381;</p>
+      <p class="price-rub" data-price="gc10">100 &#8381;</p>
       <p class="price-save">&nbsp;</p>
       <p class="price-desc" data-i18n="pricing_start_desc">Попробовать</p>
       <a href="/buy.html" class="btn-p btn-po" data-i18n="pricing_select">Выбрать</a>
@@ -445,7 +445,7 @@ img{max-width:100%;display:block}
     <div class="price-card rv">
       <p class="price-name" data-i18n="pricing_optimal_name">Оптимальный</p>
       <p class="price-gc">50 GC</p>
-      <p class="price-rub">475 &#8381;</p>
+      <p class="price-rub" data-price="gc50">475 &#8381;</p>
       <p class="price-save" data-i18n="discount_5">Скидка 5%</p>
       <p class="price-desc" data-i18n="pricing_optimal_desc">Для одного курса</p>
       <a href="/buy.html" class="btn-p btn-po" data-i18n="pricing_select">Выбрать</a>
@@ -453,7 +453,7 @@ img{max-width:100%;display:block}
     <div class="price-card rv">
       <p class="price-name" data-i18n="pricing_advanced_name">Продвинутый</p>
       <p class="price-gc">150 GC</p>
-      <p class="price-rub">1 350 &#8381;</p>
+      <p class="price-rub" data-price="gc150">1 350 &#8381;</p>
       <p class="price-save" data-i18n="discount_7">Скидка 7%</p>
       <p class="price-desc" data-i18n="pricing_advanced_desc">Для нескольких курсов</p>
       <a href="/buy.html" class="btn-p btn-po" data-i18n="pricing_select">Выбрать</a>
@@ -461,7 +461,7 @@ img{max-width:100%;display:block}
     <div class="price-card rv">
       <p class="price-name" data-i18n="pricing_max_name">Максимум</p>
       <p class="price-gc">500 GC</p>
-      <p class="price-rub">4 500 &#8381;</p>
+      <p class="price-rub" data-price="gc500">4 500 &#8381;</p>
       <p class="price-save" data-i18n="discount_10">Скидка 10%</p>
       <p class="price-desc" data-i18n="pricing_max_desc">Для больших объёмов</p>
       <a href="/buy.html" class="btn-p btn-po" data-i18n="pricing_select">Выбрать</a>
@@ -470,7 +470,7 @@ img{max-width:100%;display:block}
       <span class="price-badge" data-i18n="pricing_recommended">Рекомендуем</span>
       <p class="price-name" data-i18n="pricing_unlimited_name">Безлимит</p>
       <p class="price-gc">&infin;</p>
-      <p class="price-rub">4 990 &#8381;</p>
+      <p class="price-rub" data-price="unlimited">4 990 &#8381;</p>
       <p class="price-save" data-i18n="pricing_forever">Навсегда</p>
       <p class="price-desc" data-i18n="pricing_unlimited_desc">Без ограничений, одна покупка</p>
       <a href="/buy.html" class="btn-p btn-pf" data-i18n="pricing_select">Выбрать</a>
@@ -550,6 +550,7 @@ img{max-width:100%;display:block}
 </footer>
 
 <script src="/i18n.js"></script>
+<script src="/currency.js"></script>
 <script src="/auth-nav.js"></script>
 <script>
 /* Reveal */

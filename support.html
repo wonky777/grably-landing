@@ -144,16 +144,16 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 </div>
 
 <div class="content rv" style="border-top:1px solid var(--border-s);padding-top:48px;margin-top:40px">
-  <h2>Написать в поддержку</h2>
-  <p style="color:var(--t3);margin-bottom:24px">Опишите проблему и мы ответим в течение 24 часов</p>
+  <h2 data-i18n="ticket_title">Написать в поддержку</h2>
+  <p style="color:var(--t3);margin-bottom:24px" data-i18n="ticket_sub">Опишите проблему и мы ответим в течение 24 часов</p>
   <form id="ticket-form">
-    <div style="margin-bottom:16px"><label style="display:block;font-size:12px;color:var(--t3);margin-bottom:6px;font-weight:600">Ваш email *</label><input type="email" id="t-email" required placeholder="your@email.com" style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--t);padding:12px 16px;font-size:14px;font-family:inherit;outline:none"></div>
-    <div style="margin-bottom:16px"><label style="display:block;font-size:12px;color:var(--t3);margin-bottom:6px;font-weight:600">Тема обращения *</label><input type="text" id="t-subject" required placeholder="Коротко опишите проблему" style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--t);padding:12px 16px;font-size:14px;font-family:inherit;outline:none"></div>
-    <div style="margin-bottom:16px"><label style="display:block;font-size:12px;color:var(--t3);margin-bottom:6px;font-weight:600">Сообщение *</label><textarea id="t-message" required rows="6" placeholder="Опишите проблему подробно..." style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--t);padding:12px 16px;font-size:14px;font-family:inherit;outline:none;resize:vertical"></textarea></div>
-    <div style="margin-bottom:16px"><label style="display:block;font-size:12px;color:var(--t3);margin-bottom:6px;font-weight:600">Версия расширения</label><input type="text" id="t-version" placeholder="2.0" style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--t);padding:12px 16px;font-size:14px;font-family:inherit;outline:none"></div>
+    <div style="margin-bottom:16px"><label style="display:block;font-size:12px;color:var(--t3);margin-bottom:6px;font-weight:600" data-i18n="ticket_email">Ваш email *</label><input type="email" id="t-email" required placeholder="your@email.com" style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--t);padding:12px 16px;font-size:14px;font-family:inherit;outline:none"></div>
+    <div style="margin-bottom:16px"><label style="display:block;font-size:12px;color:var(--t3);margin-bottom:6px;font-weight:600" data-i18n="ticket_subject">Тема обращения *</label><input type="text" id="t-subject" required data-i18n="ticket_subject_ph" placeholder="Коротко опишите проблему" style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--t);padding:12px 16px;font-size:14px;font-family:inherit;outline:none"></div>
+    <div style="margin-bottom:16px"><label style="display:block;font-size:12px;color:var(--t3);margin-bottom:6px;font-weight:600" data-i18n="ticket_message">Сообщение *</label><textarea id="t-message" required rows="6" data-i18n="ticket_message_ph" placeholder="Опишите проблему подробно..." style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--t);padding:12px 16px;font-size:14px;font-family:inherit;outline:none;resize:vertical"></textarea></div>
+    <div style="margin-bottom:16px"><label style="display:block;font-size:12px;color:var(--t3);margin-bottom:6px;font-weight:600" data-i18n="ticket_version">Версия расширения</label><input type="text" id="t-version" placeholder="2.0" style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--t);padding:12px 16px;font-size:14px;font-family:inherit;outline:none"></div>
     <div id="t-error" style="color:#EF4444;font-size:13px;min-height:20px;text-align:center;margin-bottom:8px"></div>
-    <div id="t-success" style="display:none;color:#10B981;font-size:14px;text-align:center;padding:14px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.15);border-radius:10px;margin-bottom:12px">&#10003; Ваше обращение отправлено. Мы ответим на email в течение 24 часов.</div>
-    <button type="submit" id="t-submit" style="width:100%;padding:14px;background:linear-gradient(135deg,#7C3AED,#6D28D9);border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 0 20px rgba(124,58,237,.25);transition:all .25s">Отправить</button>
+    <div id="t-success" style="display:none;color:#10B981;font-size:14px;text-align:center;padding:14px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.15);border-radius:10px;margin-bottom:12px" data-i18n="ticket_sent">&#10003; Ваше обращение отправлено. Мы ответим на email в течение 24 часов.</div>
+    <button type="submit" id="t-submit" style="width:100%;padding:14px;background:linear-gradient(135deg,#7C3AED,#6D28D9);border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 0 20px rgba(124,58,237,.25);transition:all .25s" data-i18n="ticket_send">Отправить</button>
   </form>
 </div>
 
@@ -247,7 +247,8 @@ document.querySelectorAll('.faq-q').forEach(function(btn){btn.addEventListener('
     var successBox = document.getElementById('t-success');
     errBox.textContent = '';
     btn.disabled = true;
-    btn.textContent = 'Отправка...';
+    var _t = typeof t === 'function' ? t : function(k){return k};
+    btn.textContent = _t('ticket_sending');
     try {
       var resp = await fetch(API + '/ticket', {
         method: 'POST',
@@ -263,12 +264,12 @@ document.querySelectorAll('.faq-q').forEach(function(btn){btn.addEventListener('
       if (!resp.ok) throw new Error();
       form.reset();
       successBox.style.display = 'block';
-      btn.textContent = 'Отправлено \u2713';
-      setTimeout(function(){ successBox.style.display='none'; btn.disabled=false; btn.textContent='Отправить'; }, 5000);
+      btn.textContent = _t('ticket_done');
+      setTimeout(function(){ successBox.style.display='none'; btn.disabled=false; btn.textContent=_t('ticket_send'); }, 5000);
     } catch(err) {
-      errBox.textContent = 'Ошибка отправки. Напишите напрямую в Telegram: @grably_help';
+      errBox.textContent = _t('ticket_error');
       btn.disabled = false;
-      btn.textContent = 'Отправить';
+      btn.textContent = _t('ticket_send');
     }
   });
 })();

@@ -48,6 +48,13 @@ const translations = {
     footer_copyright: '\u00A9 2024 GrabLy. All rights reserved.',
     discount_5: '5% off', discount_7: '7% off', discount_10: '10% off',
     sticker_gc: '10 GC free', sticker_platforms: '12+ platforms', sticker_nosub: 'No subscriptions',
+    ticket_title: 'Contact support', ticket_sub: 'Describe the issue and we\u2019ll respond within 24 hours',
+    ticket_email: 'Your email *', ticket_subject: 'Subject *', ticket_subject_ph: 'Briefly describe the issue',
+    ticket_message: 'Message *', ticket_message_ph: 'Describe the issue in detail...',
+    ticket_version: 'Extension version', ticket_send: 'Send', ticket_sending: 'Sending...',
+    ticket_done: 'Sent \u2713', ticket_sent: '\u2713 Your request has been sent. We\u2019ll reply within 24 hours.',
+    ticket_error: 'Failed to send. Write directly: Telegram @grably_help',
+    legal_notice: 'This document is available in Russian only. For questions, contact us via Telegram @grably_help.',
     footer_brand_text: 'Download videos from online courses in one click. Chrome extension.',
     footer_copyright: '\u00A9 2024 GrabLy. All rights reserved.',
     faq_contact_text: 'Didn\u2019t find an answer? Write to us at',
@@ -193,6 +200,12 @@ const translations = {
     footer_copyright: '\u00A9 2024 GrabLy. \u0412\u0441\u0435 \u043F\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043D\u044B.',
     discount_5: '\u0421\u043A\u0438\u0434\u043A\u0430 5%', discount_7: '\u0421\u043A\u0438\u0434\u043A\u0430 7%', discount_10: '\u0421\u043A\u0438\u0434\u043A\u0430 10%',
     sticker_gc: '10 GC \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E', sticker_platforms: '12+ \u043F\u043B\u0430\u0442\u0444\u043E\u0440\u043C', sticker_nosub: '\u0411\u0435\u0437 \u0430\u0431\u043E\u043D\u0435\u043D\u0442\u043A\u0438',
+    ticket_title: '\u041D\u0430\u043F\u0438\u0441\u0430\u0442\u044C \u0432 \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0443', ticket_sub: '\u041E\u043F\u0438\u0448\u0438\u0442\u0435 \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u0443 \u0438 \u043C\u044B \u043E\u0442\u0432\u0435\u0442\u0438\u043C \u0432 \u0442\u0435\u0447\u0435\u043D\u0438\u0435 24 \u0447\u0430\u0441\u043E\u0432',
+    ticket_email: '\u0412\u0430\u0448 email *', ticket_subject: '\u0422\u0435\u043C\u0430 \u043E\u0431\u0440\u0430\u0449\u0435\u043D\u0438\u044F *', ticket_subject_ph: '\u041A\u043E\u0440\u043E\u0442\u043A\u043E \u043E\u043F\u0438\u0448\u0438\u0442\u0435 \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u0443',
+    ticket_message: '\u0421\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435 *', ticket_message_ph: '\u041E\u043F\u0438\u0448\u0438\u0442\u0435 \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u0443 \u043F\u043E\u0434\u0440\u043E\u0431\u043D\u043E...',
+    ticket_version: '\u0412\u0435\u0440\u0441\u0438\u044F \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043D\u0438\u044F', ticket_send: '\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C', ticket_sending: '\u041E\u0442\u043F\u0440\u0430\u0432\u043A\u0430...',
+    ticket_done: '\u041E\u0442\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u043E \u2713', ticket_sent: '\u2713 \u0412\u0430\u0448\u0435 \u043E\u0431\u0440\u0430\u0449\u0435\u043D\u0438\u0435 \u043E\u0442\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u043E. \u041C\u044B \u043E\u0442\u0432\u0435\u0442\u0438\u043C \u043D\u0430 email \u0432 \u0442\u0435\u0447\u0435\u043D\u0438\u0435 24 \u0447\u0430\u0441\u043E\u0432.',
+    ticket_error: '\u041E\u0448\u0438\u0431\u043A\u0430 \u043E\u0442\u043F\u0440\u0430\u0432\u043A\u0438. \u041D\u0430\u043F\u0438\u0448\u0438\u0442\u0435 \u043D\u0430\u043F\u0440\u044F\u043C\u0443\u044E: Telegram @grably_help',
     footer_brand_text: '\u0421\u043A\u0430\u0447\u0438\u0432\u0430\u0439 \u0432\u0438\u0434\u0435\u043E \u0441 \u043E\u043D\u043B\u0430\u0439\u043D-\u043A\u0443\u0440\u0441\u043E\u0432 \u0432 \u043E\u0434\u0438\u043D \u043A\u043B\u0438\u043A. \u0420\u0430\u0441\u0448\u0438\u0440\u0435\u043D\u0438\u0435 \u0434\u043B\u044F Chrome.',
     footer_copyright: '\u00A9 2024 GrabLy. \u0412\u0441\u0435 \u043F\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043D\u044B.',
     faq_contact_text: '\u041D\u0435 \u043D\u0430\u0448\u043B\u0438 \u043E\u0442\u0432\u0435\u0442? \u041D\u0430\u043F\u0438\u0448\u0438\u0442\u0435 \u043D\u0430\u043C',
@@ -680,6 +693,12 @@ function applyTranslations() {
       el.textContent = val;
     }
   });
+
+  // Show legal notice on non-ru legal pages
+  var notice = document.getElementById('legal-notice');
+  if (notice) {
+    notice.style.display = lang === 'ru' ? 'none' : 'block';
+  }
 }
 
 document.addEventListener('DOMContentLoaded', applyTranslations);

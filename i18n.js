@@ -2,6 +2,7 @@ const translations = {
   en: {
     nav_install: 'Instructions', nav_features: 'Features', nav_pricing: 'Pricing', nav_faq: 'FAQ',
     nav_login: 'Log in', nav_install_btn: 'Download free',
+    nav_profile: 'Profile', nav_topup: 'Top up', nav_logout: 'Log out',
     hero_title: 'Download course videos<br>in <span>one click</span>',
     hero_subtitle: 'Download videos from online courses in a couple of clicks. Works on 12+ platforms — Kinescope, Vimeo, Rutube and more.',
     hero_btn_install: 'Install for free', hero_btn_how: 'Install instructions \u2192',
@@ -146,6 +147,7 @@ const translations = {
   ru: {
     nav_install: '\u0418\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u044F', nav_features: '\u0412\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u0438', nav_pricing: '\u0426\u0435\u043D\u044B', nav_faq: 'FAQ',
     nav_login: '\u0412\u043E\u0439\u0442\u0438', nav_install_btn: '\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E',
+    nav_profile: '\u041F\u0440\u043E\u0444\u0438\u043B\u044C', nav_topup: '\u041F\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u044C', nav_logout: '\u0412\u044B\u0439\u0442\u0438',
     hero_title: '\u0421\u043A\u0430\u0447\u0438\u0432\u0430\u0439 \u0432\u0438\u0434\u0435\u043E<br>\u0441 \u043A\u0443\u0440\u0441\u043E\u0432 <span>\u0437\u0430 1 \u043A\u043B\u0438\u043A</span>',
     hero_subtitle: '\u0421\u043A\u0430\u0447\u0438\u0432\u0430\u0439 \u0432\u0438\u0434\u0435\u043E \u0441 \u043E\u043D\u043B\u0430\u0439\u043D-\u043A\u0443\u0440\u0441\u043E\u0432 \u0432 \u043F\u0430\u0440\u0443 \u043A\u043B\u0438\u043A\u043E\u0432. \u0420\u0430\u0431\u043E\u0442\u0430\u0435\u0442 \u043D\u0430 12+ \u043F\u043B\u0430\u0442\u0444\u043E\u0440\u043C\u0430\u0445 \u2014 Kinescope, Vimeo, Rutube \u0438 \u0434\u0440\u0443\u0433\u0438\u0445.',
     hero_btn_install: '\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E', hero_btn_how: '\u0418\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0438\u044F \u043F\u043E \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0435 \u2192',
@@ -276,6 +278,7 @@ const translations = {
   uk: {
     nav_install: '\u0406\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0456\u044F', nav_features: '\u041C\u043E\u0436\u043B\u0438\u0432\u043E\u0441\u0442\u0456', nav_pricing: '\u0426\u0456\u043D\u0438', nav_faq: 'FAQ',
     nav_login: '\u0423\u0432\u0456\u0439\u0442\u0438', nav_install_btn: '\u0417\u0430\u0432\u0430\u043D\u0442\u0430\u0436\u0438\u0442\u0438 \u0431\u0435\u0437\u043A\u043E\u0448\u0442\u043E\u0432\u043D\u043E',
+    nav_profile: '\u041F\u0440\u043E\u0444\u0456\u043B\u044C', nav_topup: '\u041F\u043E\u043F\u043E\u0432\u043D\u0438\u0442\u0438', nav_logout: '\u0412\u0438\u0439\u0442\u0438',
     hero_title: '\u0417\u0430\u0432\u0430\u043D\u0442\u0430\u0436\u0443\u0439 \u0432\u0456\u0434\u0435\u043E<br>\u0437 \u043A\u0443\u0440\u0441\u0456\u0432 <span>\u0437\u0430 1 \u043A\u043B\u0456\u043A</span>',
     hero_subtitle: '\u0417\u0430\u0432\u0430\u043D\u0442\u0430\u0436\u0443\u0439 \u0432\u0456\u0434\u0435\u043E \u0437 \u043E\u043D\u043B\u0430\u0439\u043D-\u043A\u0443\u0440\u0441\u0456\u0432 \u0437\u0430 \u043F\u0430\u0440\u0443 \u043A\u043B\u0456\u043A\u0456\u0432. \u041F\u0440\u0430\u0446\u044E\u0454 \u043D\u0430 12+ \u043F\u043B\u0430\u0442\u0444\u043E\u0440\u043C\u0430\u0445.',
     hero_btn_install: '\u0412\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0438 \u0431\u0435\u0437\u043A\u043E\u0448\u0442\u043E\u0432\u043D\u043E', hero_btn_how: '\u042F\u043A \u0446\u0435 \u043F\u0440\u0430\u0446\u044E\u0454 \u2193',
@@ -322,6 +325,7 @@ const translations = {
   de: {
     nav_install: 'Anleitung', nav_features: 'Funktionen', nav_pricing: 'Preise', nav_faq: 'FAQ',
     nav_login: 'Anmelden', nav_install_btn: 'Kostenlos herunterladen',
+    nav_profile: 'Profil', nav_topup: 'Aufladen', nav_logout: 'Abmelden',
     hero_title: 'Kursvideos<br>mit <span>einem Klick</span> herunterladen',
     hero_subtitle: 'Lade Videos von Online-Kursen in wenigen Klicks herunter. Funktioniert auf 12+ Plattformen.',
     hero_btn_install: 'Kostenlos installieren', hero_btn_how: 'So funktioniert es \u2193',
@@ -367,6 +371,7 @@ const translations = {
   fr: {
     nav_install: 'Instructions', nav_features: 'Fonctionnalit\u00E9s', nav_pricing: 'Tarifs', nav_faq: 'FAQ',
     nav_login: 'Connexion', nav_install_btn: 'T\u00E9l\u00E9charger gratuitement',
+    nav_profile: 'Profil', nav_topup: 'Recharger', nav_logout: 'D\u00E9connexion',
     hero_title: 'T\u00E9l\u00E9charge des vid\u00E9os<br>de cours <span>en un clic</span>',
     hero_subtitle: 'T\u00E9l\u00E9charge des vid\u00E9os de cours en ligne en quelques clics. Fonctionne sur 12+ plateformes.',
     hero_btn_install: 'Installer gratuitement', hero_btn_how: 'Comment \u00E7a marche \u2193',
@@ -412,6 +417,7 @@ const translations = {
   es: {
     nav_install: 'Instrucciones', nav_features: 'Funciones', nav_pricing: 'Precios', nav_faq: 'FAQ',
     nav_login: 'Entrar', nav_install_btn: 'Descargar gratis',
+    nav_profile: 'Perfil', nav_topup: 'Recargar', nav_logout: 'Salir',
     hero_title: 'Descarga v\u00EDdeos<br>de cursos <span>en un clic</span>',
     hero_subtitle: 'Descarga v\u00EDdeos de cursos online en un par de clics. Funciona en 12+ plataformas.',
     hero_btn_install: 'Instalar gratis', hero_btn_how: 'C\u00F3mo funciona \u2193',
@@ -456,6 +462,7 @@ const translations = {
   pt: {
     nav_install: 'Instru\u00E7\u00F5es', nav_features: 'Recursos', nav_pricing: 'Pre\u00E7os', nav_faq: 'FAQ',
     nav_login: 'Entrar', nav_install_btn: 'Baixar gr\u00E1tis',
+    nav_profile: 'Perfil', nav_topup: 'Recarregar', nav_logout: 'Sair',
     hero_title: 'Baixe v\u00EDdeos<br>de cursos <span>em um clique</span>',
     hero_subtitle: 'Baixe v\u00EDdeos de cursos online em poucos cliques. Funciona em 12+ plataformas.',
     hero_btn_install: 'Instalar gr\u00E1tis', hero_btn_how: 'Como funciona \u2193',
@@ -477,6 +484,7 @@ const translations = {
   pl: {
     nav_install: 'Instrukcja', nav_features: 'Funkcje', nav_pricing: 'Cennik', nav_faq: 'FAQ',
     nav_login: 'Zaloguj', nav_install_btn: 'Pobierz za darmo',
+    nav_profile: 'Profil', nav_topup: 'Do\u0142aduj', nav_logout: 'Wyloguj',
     hero_title: 'Pobieraj filmy<br>z kurs\u00F3w <span>jednym klikiem</span>',
     hero_subtitle: 'Pobieraj filmy z kurs\u00F3w online w kilka klik\u00F3w. Dzia\u0142a na 12+ platformach.',
     hero_btn_install: 'Zainstaluj za darmo', hero_btn_how: 'Jak to dzia\u0142a \u2193',
@@ -498,6 +506,7 @@ const translations = {
   tr: {
     nav_install: 'Kurulum', nav_features: '\u00D6zellikler', nav_pricing: 'Fiyatlar', nav_faq: 'SSS',
     nav_login: 'Giri\u015F', nav_install_btn: '\u00DCcretsiz indir',
+    nav_profile: 'Profil', nav_topup: 'Y\u00FCkle', nav_logout: '\u00C7\u0131k\u0131\u015F',
     hero_title: 'Kurs videolar\u0131n\u0131<br><span>tek t\u0131kla</span> indirin',
     hero_subtitle: '\u00C7evrimi\u00E7i kurslardan video indirin. 12+ platformda \u00E7al\u0131\u015F\u0131r.',
     hero_btn_install: '\u00DCcretsiz kur', hero_btn_how: 'Nas\u0131l \u00E7al\u0131\u015F\u0131r \u2193',
@@ -519,6 +528,7 @@ const translations = {
   zh: {
     nav_install: '\u5B89\u88C5\u6307\u5357', nav_features: '\u529F\u80FD', nav_pricing: '\u4EF7\u683C', nav_faq: '\u5E38\u89C1\u95EE\u9898',
     nav_login: '\u767B\u5F55', nav_install_btn: '\u514D\u8D39\u4E0B\u8F7D',
+    nav_profile: '\u4E2A\u4EBA\u4E2D\u5FC3', nav_topup: '\u5145\u503C', nav_logout: '\u9000\u51FA',
     hero_title: '\u4E00\u952E\u4E0B\u8F7D<br><span>\u8BFE\u7A0B\u89C6\u9891</span>',
     hero_subtitle: '\u51E0\u6B65\u5373\u53EF\u4E0B\u8F7D\u5728\u7EBF\u8BFE\u7A0B\u89C6\u9891\u3002\u652F\u630112+\u5E73\u53F0\u3002',
     hero_btn_install: '\u514D\u8D39\u5B89\u88C5', hero_btn_how: '\u5982\u4F55\u4F7F\u7528 \u2193',
@@ -540,6 +550,7 @@ const translations = {
   ja: {
     nav_install: '\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB', nav_features: '\u6A5F\u80FD', nav_pricing: '\u6599\u91D1', nav_faq: 'FAQ',
     nav_login: '\u30ED\u30B0\u30A4\u30F3', nav_install_btn: '\u7121\u6599\u30C0\u30A6\u30F3\u30ED\u30FC\u30C9',
+    nav_profile: '\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB', nav_topup: '\u30C1\u30E3\u30FC\u30B8', nav_logout: '\u30ED\u30B0\u30A2\u30A6\u30C8',
     hero_title: '\u30B3\u30FC\u30B9\u52D5\u753B\u3092<br><span>\u30EF\u30F3\u30AF\u30EA\u30C3\u30AF</span>\u3067',
     hero_subtitle: '\u30AA\u30F3\u30E9\u30A4\u30F3\u30B3\u30FC\u30B9\u306E\u52D5\u753B\u3092\u7C21\u5358\u306B\u30C0\u30A6\u30F3\u30ED\u30FC\u30C9\u300212+\u30D7\u30E9\u30C3\u30C8\u30D5\u30A9\u30FC\u30E0\u5BFE\u5FDC\u3002',
     hero_btn_install: '\u7121\u6599\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB', hero_btn_how: '\u4F7F\u3044\u65B9 \u2193',
@@ -561,6 +572,7 @@ const translations = {
   ko: {
     nav_install: '\u0124\uc124\uce58', nav_features: '\uAE30\uB2A5', nav_pricing: '\uAC00\uACA9', nav_faq: 'FAQ',
     nav_login: '\uB85C\uADF8\uC778', nav_install_btn: '\uBB34\uB8CC \uB2E4\uC6B4\uB85C\uB4DC',
+    nav_profile: '\uD504\uB85C\uD544', nav_topup: '\uCDA9\uC804', nav_logout: '\uB85C\uADF8\uC544\uC6C3',
     hero_title: '\uAC15\uC758 \uB3D9\uC601\uC0C1\uC744<br><span>\uD55C \uBC88\uC758 \uD074\uB9AD</span>\uC73C\uB85C',
     hero_subtitle: '\uC628\uB77C\uC778 \uAC15\uC758 \uB3D9\uC601\uC0C1\uC744 \uAC04\uD3B8\uD558\uAC8C \uB2E4\uC6B4\uB85C\uB4DC\uD558\uC138\uC694. 12+ \uD50C\uB7AB\uD3FC \uC9C0\uC6D0.',
     hero_btn_install: '\uBB34\uB8CC \uC124\uCE58', hero_btn_how: '\uC0AC\uC6A9\uBC95 \u2193',
@@ -582,6 +594,7 @@ const translations = {
   hi: {
     nav_install: '\u0938\u094D\u0925\u093E\u092A\u0928\u093E', nav_features: '\u0938\u0941\u0935\u093F\u0927\u093E\u090F\u0902', nav_pricing: '\u092E\u0942\u0932\u094D\u092F', nav_faq: 'FAQ',
     nav_login: '\u0932\u0949\u0917 \u0907\u0928', nav_install_btn: '\u092E\u0941\u092B\u094D\u0924 \u0921\u093E\u0909\u0928\u0932\u094B\u0921',
+    nav_profile: '\u092A\u094D\u0930\u094B\u092B\u093E\u0907\u0932', nav_topup: '\u0930\u093F\u091A\u093E\u0930\u094D\u091C', nav_logout: '\u0932\u0949\u0917 \u0906\u0909\u091F',
     hero_title: '\u0915\u094B\u0930\u094D\u0938 \u0935\u0940\u0921\u093F\u092F\u094B<br><span>\u090F\u0915 \u0915\u094D\u043B\u0438\u043A</span> \u092E\u0947\u0902 \u0921\u093E\u0909\u0928\u0932\u094B\u0921 \u0915\u0930\u0947\u0902',
     hero_subtitle: '\u0911\u0928\u043B\u0430\u0439\u043D \u0915\u094B\u0930\u094D\u0938 \u0935\u0940\u0921\u093F\u092F\u094B \u0906\u0938\u0430\u043D\u0940 \u0938\u0947 \u0921\u093E\u0909\u0928\u0932\u094B\u0921 \u0915\u0930\u0947\u0902\u0964 12+ \u092A\u094D\u0932\u0947\u091F\u0444\u0949\u0930\u094D\u092E \u043F\u0930 \u0915\u093E\u092E \u0915\u0930\u0924\u0430 \u0939\u0948\u0964',
     hero_btn_install: '\u092E\u0941\u092B\u094D\u0924 \u0907\u0902\u0938\u094D\u091F\u0949\u0932 \u0915\u0930\u0947\u0902', hero_btn_how: '\u0915\u0948\u0938\u0947 \u0915\u093E\u092E \u0915\u0930\u0924\u093E \u0939\u0948 \u2193',
@@ -602,6 +615,7 @@ const translations = {
   ar: {
     nav_install: '\u062A\u0639\u0644\u064A\u0645\u0627\u062A', nav_features: '\u0627\u0644\u0645\u0645\u064A\u0632\u0627\u062A', nav_pricing: '\u0627\u0644\u0623\u0633\u0639\u0627\u0631', nav_faq: '\u0623\u0633\u0626\u0644\u0629 \u0634\u0627\u0626\u0639\u0629',
     nav_login: '\u062A\u0633\u062C\u064A\u0644 \u0627\u0644\u062F\u062E\u0648\u0644', nav_install_btn: '\u062A\u062D\u0645\u064A\u0644 \u0645\u062C\u0627\u0646\u064A',
+    nav_profile: '\u0627\u0644\u0645\u0644\u0641 \u0627\u0644\u0634\u062E\u0635\u064A', nav_topup: '\u0634\u062D\u0646', nav_logout: '\u062E\u0631\u0648\u062C',
     hero_title: '\u062D\u0645\u0651\u0644 \u0641\u064A\u062F\u064A\u0648\u0647\u0627\u062A \u0627\u0644\u062F\u0648\u0631\u0627\u062A<br><span>\u0628\u0646\u0642\u0631\u0629 \u0648\u0627\u062D\u062F\u0629</span>',
     hero_subtitle: '\u062D\u0645\u0651\u0644 \u0641\u064A\u062F\u064A\u0648\u0647\u0627\u062A \u0627\u0644\u062F\u0648\u0631\u0627\u062A \u0627\u0644\u062A\u062F\u0631\u064A\u0628\u064A\u0629 \u0628\u0633\u0647\u0648\u0644\u0629. \u064A\u0639\u0645\u0644 \u0639\u0644\u0649 12+ \u0645\u0646\u0635\u0629.',
     hero_btn_install: '\u062A\u062B\u0628\u064A\u062A \u0645\u062C\u0627\u0646\u064A', hero_btn_how: '\u0643\u064A\u0641 \u064A\u0639\u0645\u0644 \u2193',

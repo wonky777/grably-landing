@@ -16,18 +16,20 @@ function renderAuthNav() {
   if (!container) return;
 
   if (user) {
+    var _t = typeof t === 'function' ? t : function(k){ return k; };
     var initial = user.email[0].toUpperCase();
+    var balText = user.unlimited ? '\u267E\uFE0F Unlimited' : (user.coins || 0) + ' GC';
     container.innerHTML =
       '<div class="profile-menu">' +
         '<button class="profile-avatar" id="profile-btn">' + initial + '</button>' +
         '<div class="profile-dd" id="profile-dd">' +
           '<div class="profile-hd">' +
             '<div class="profile-em">' + user.email + '</div>' +
-            '<div class="profile-bal">' + (user.unlimited ? '\u267E\uFE0F \u0411\u0435\u0437\u043B\u0438\u043C\u0438\u0442' : (user.coins || 0) + ' GC') + '</div>' +
+            '<div class="profile-bal">' + balText + '</div>' +
           '</div>' +
-          '<a href="/profile.html" class="profile-it">\uD83D\uDC64 \u041F\u0440\u043E\u0444\u0438\u043B\u044C</a>' +
-          '<a href="/buy.html" class="profile-it">\uD83D\uDCB0 \u041F\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u044C</a>' +
-          '<a href="#" class="profile-it" id="logout-link">\uD83D\uDEAA \u0412\u044B\u0439\u0442\u0438</a>' +
+          '<a href="/profile.html" class="profile-it">\uD83D\uDC64 ' + _t('nav_profile') + '</a>' +
+          '<a href="/buy.html" class="profile-it">\uD83D\uDCB0 ' + _t('nav_topup') + '</a>' +
+          '<a href="#" class="profile-it" id="logout-link">\uD83D\uDEAA ' + _t('nav_logout') + '</a>' +
         '</div>' +
       '</div>';
 
@@ -45,9 +47,10 @@ function renderAuthNav() {
       if (dd) dd.classList.remove('open');
     });
   } else {
+    var _t = typeof t === 'function' ? t : function(k){ return k; };
     container.innerHTML =
-      '<a href="/login.html" class="btn-ghost">\u0412\u043E\u0439\u0442\u0438</a>' +
-      '<a href="/GrabLy.zip" download class="btn-sm">\u0421\u043A\u0430\u0447\u0430\u0442\u044C</a>';
+      '<a href="/login.html" class="btn-ghost">' + _t('nav_login') + '</a>' +
+      '<a href="/GrabLy.zip" download class="btn-sm">' + _t('nav_install_btn') + '</a>';
   }
 }
 
